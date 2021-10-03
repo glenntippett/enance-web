@@ -1,0 +1,25 @@
+.nav {
+  width: 100vw;
+  height: var(--spacing-8);
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: var(--spacing-6);
+  padding-right: var(--spacing-6);
+}
+
+.nav h5 {
+  margin-right: var(--spacing-8);
+  font-weight: var(--semi-bold);
+}
+
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.nav ul li:not(:last-child) {
+  margin-right: var(--spacing-7);
+}

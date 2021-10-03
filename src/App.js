@@ -1,10 +1,10 @@
 import './App.css';
-import ButtonPrimary from './components/Button';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
-      <ButtonPrimary buttonText="Get Started"/>
+      <Nav />
     </div>
   );
 }
