@@ -9,15 +9,15 @@ Ensure you are on the latest version with
 
 
 User stories can be found on the [Jira Board](https://enance.atlassian.net/jira/software/projects/EN/boards/1).  
-1. Create or click on a card
-2. Select **Create branch**
-3. In the new window, select the Repository **enance-project/enance-web**
-4. Select the type
-5. From branch is **main**
-6. Leave the default Brance name
-7. Select create
-8. This will open Bitbucket, you'll see the command `git fetch && git checkout etc...`
-9. Run that command in your terminal from the main branch
+1. Create or click on a card  
+2. Select **Create branch**  
+3. In the new window, select the Repository **enance-project/enance-web**  
+4. Select the type  
+5. From branch is **main**  
+6. Leave the default Brance name  
+7. Select create  
+8. This will open Bitbucket, you'll see the command `git fetch && git checkout etc...`  
+9. Run that command in your terminal from the main branch  
 
 ## To push your branch
 Simply run `git push`
