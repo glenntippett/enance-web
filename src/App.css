@@ -31,6 +31,9 @@
   --spacing-10: 128px;
   --spacing-11: 160px;
   --spacing-12: 192px;
+  --spacing-13: 224px;
+
+  --banner-height: 405px;
 
   /* Border Radius */
   --border-1: 2px;
