@@ -7,6 +7,7 @@ To clone the repo:
 Ensure you are on the latest version with  
 `git pull`
 
+
 User stories can be found on the [Jira Board](https://enance.atlassian.net/jira/software/projects/EN/boards/1).  
 1. Create or click on a card
 2. Select **Create branch**
