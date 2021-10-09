@@ -1,0 +1,14 @@
+.btn-primary {
+  background: var(--primary);
+  text-decoration: none;
+  color: var(--btn-text-primary);
+  padding: var(--spacing-3);
+  border-radius: var(--border-3);
+  font-weight: var(--semi-bold);
+  font-size: var(--button-txt-size);
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  opacity: var(--btn-hover-opacity);
+}

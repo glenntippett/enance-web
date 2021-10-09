@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Enance Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting started for dev
+To clone the repo:  
+`git clone git@bitbucket.org:enance-project/enance-web.git`  
+
+User stories can be found on the [Jira Board](https://enance.atlassian.net/jira/software/projects/EN/boards/1).  
+1. Create or click on a card
+2. Select **Create branch**
+3. In the new window, select the Repository **enance-project/enance-web**
+4. Select the type
+5. From branch is **main**
+6. Leave the default Brance name
+7. Select create
+8. This will open Bitbucket, you'll see the command `git fetch && git checkout etc...`
+9. Run that command in your terminal from the main branch
+
+## To push your branch
+Simply run `git push`
 
 ## Available Scripts
 
