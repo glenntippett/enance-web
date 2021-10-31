@@ -3,8 +3,9 @@ import Nav from "./components/Nav";
 import Banner from "./components/Banner";
 import ButtonPrimary from "./components/Button";
 import Container from "./components/Container";
+import UserCard from "./components/userCard/UserCard";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Nav />
@@ -18,8 +19,9 @@ function App() {
           <ButtonPrimary buttonText="Get Started" />
         </Container>
       </Banner>
+      <UserCard />
     </div>
   );
-}
+};
 
 export default App;
