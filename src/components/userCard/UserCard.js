@@ -21,6 +21,7 @@ const UserCard = () => {
               avatar: person.avatar,
               country: person.address.country,
               state: person.address.state,
+              active: true,
             };
             return singlePersonInfo;
           });
