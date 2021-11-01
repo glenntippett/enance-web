@@ -13,4 +13,5 @@
 .btn-primary:hover {
   opacity: var(--btn-hover-opacity);
   transition: var(--fade-in-out-time);
+  cursor: pointer;
 }
