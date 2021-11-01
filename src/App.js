@@ -1,5 +1,5 @@
 import "./App.css";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import Banner from "./components/Banner";
 import ButtonPrimary from "./components/Button";
 import Container from "./components/Container";

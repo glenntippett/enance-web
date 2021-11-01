@@ -1,5 +1,5 @@
 import "./nav.css";
-import ButtonPrimary from "./Button";
+import ButtonPrimary from "./../Button";
 
 const Nav = () => {
   return (
@@ -8,6 +8,7 @@ const Nav = () => {
         <h5>Enance</h5>
         <li>Profiles</li>
         <li>About</li>
+        <li>Challenges</li>
         <li>Contact</li>
       </ul>
       <ul>

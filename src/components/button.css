@@ -7,8 +7,10 @@
   font-weight: var(--semi-bold);
   font-size: var(--button-txt-size);
   text-transform: uppercase;
+  transition: var(--fade-in-out-time);
 }
 
 .btn-primary:hover {
   opacity: var(--btn-hover-opacity);
+  transition: var(--fade-in-out-time);
 }
