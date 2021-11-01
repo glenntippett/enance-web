@@ -1,26 +1,20 @@
 import "./App.css";
 import Nav from "./components/Nav/Nav";
-import Banner from "./components/Banner";
-import ButtonPrimary from "./components/Button";
-import Container from "./components/Container";
-import UserCard from "./components/userCard/UserCard";
+import { Challenges } from "./pages/Challenges";
+import { Homepage } from "./pages/Homepage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export const App = () => {
   return (
-    <div className="App">
-      <Nav />
-      <Banner>
-        <Container>
-          <h3>Showcasing junior developers to recruiters</h3>
-          <p>
-            Enance is a platform to showcase junior developers as well as be a
-            community for developers to discuss and share ideas
-          </p>
-          <ButtonPrimary buttonText="Get Started" />
-        </Container>
-      </Banner>
-      <UserCard />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/challenges" component={Challenges} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

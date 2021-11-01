@@ -24,11 +24,10 @@ const UserCard = () => {
           setUsers(...users, userInfo);
         });
     };
-
     fetchData();
   }, []);
 
-  if (!users) return "Loading...";
+  if (!users) return "";
 
   return (
     <section className="container-new-users">

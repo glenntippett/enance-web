@@ -9,9 +9,14 @@
   padding-right: var(--spacing-6);
 }
 
+.nav a {
+  text-decoration: none;
+}
+
 .nav h5 {
   margin-right: var(--spacing-8);
   font-weight: var(--semi-bold);
+  color: black;
 }
 
 .nav ul {
@@ -23,15 +28,12 @@
 .nav ul li {
   padding: var(--spacing-3);
   transition: var(--fade-in-out-time);
+  color: black;
 }
 
-.nav ul li:hover {
+.nav ul li:hover:not(.container-login-signup-links a:last-child li) {
   cursor: pointer;
   background: var(--hover);
   border-radius: var(--border-3);
   transition: var(--fade-in-out-time);
-}
-
-.nav ul li:not(:last-child) {
-  margin-right: var(--spacing-7);
 }

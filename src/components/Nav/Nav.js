@@ -1,21 +1,36 @@
 import "./nav.css";
-import ButtonPrimary from "./../Button";
+import ButtonPrimary from "./../Button/Button";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <nav className="nav">
       <ul>
-        <h5>Enance</h5>
-        <li>Profiles</li>
-        <li>About</li>
-        <li>Challenges</li>
-        <li>Contact</li>
+        <Link to="/">
+          <h5>Enance</h5>
+        </Link>
+        <Link>
+          <li>Profiles</li>
+        </Link>
+        <Link>
+          <li>About</li>
+        </Link>
+        <Link to="/challenges">
+          <li>Challenges</li>
+        </Link>
+        <Link>
+          <li>Contact</li>
+        </Link>
       </ul>
-      <ul>
-        <li>Login</li>
-        <li>
-          <ButtonPrimary buttonText="Get Started" />
-        </li>
+      <ul className="container-login-signup-links">
+        <Link>
+          <li>Login</li>
+        </Link>
+        <Link>
+          <li>
+            <ButtonPrimary buttonText="Get Started" />
+          </li>
+        </Link>
       </ul>
     </nav>
   );
