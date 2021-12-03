@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../components/Container/Container";
+import Markdown from 'markdown-to-jsx';
 
 export const Challenges = () => {
+  const [challenge, setChallenge] = useState('');
+
   const ulStyles = {
     display: "flex",
     listStyleType: "none",
@@ -34,6 +37,9 @@ export const Challenges = () => {
     marginTop: "16px",
   };
 
+  fetch('https://enance.s3.ap-southeast-2.amazonaws.com/test-markdown.md')
+  .then(response => response.text()).then((data) => setChallenge(data));
+
   return (
     <Container>
       <h2>
@@ -49,6 +55,10 @@ export const Challenges = () => {
       </ul>
 
       <hr />
+
+      <Markdown>
+        {challenge}
+      </Markdown>
 
       <section style={containerCard}>
         <article style={card}>
@@ -75,61 +85,6 @@ export const Challenges = () => {
           </p>
         </article>
 
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
       </section>
     </Container>
   );
