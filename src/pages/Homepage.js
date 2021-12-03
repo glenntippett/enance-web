@@ -17,7 +17,10 @@ export const Homepage = () => {
           <ButtonPrimary buttonText="Get Started" />
         </Container>
       </Banner>
-      <UserCard />
+      <Container>
+        <h4>Recent Signups</h4>
+        <UserCard />
+      </Container>
     </>
   );
 };

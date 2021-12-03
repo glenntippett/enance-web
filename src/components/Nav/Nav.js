@@ -9,24 +9,24 @@ const Nav = () => {
         <Link to="/">
           <h5>Enance</h5>
         </Link>
-        <Link>
+        <Link to="#">
           <li>Profiles</li>
         </Link>
-        <Link>
+        <Link to="#">
           <li>About</li>
         </Link>
         <Link to="/challenges">
           <li>Challenges</li>
         </Link>
-        <Link>
+        <Link to="#">
           <li>Contact</li>
         </Link>
       </ul>
       <ul className="container-login-signup-links">
-        <Link>
+        <Link to="#">
           <li>Login</li>
         </Link>
-        <Link>
+        <Link to="#">
           <li>
             <ButtonPrimary buttonText="Get Started" />
           </li>

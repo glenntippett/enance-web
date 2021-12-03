@@ -3,7 +3,7 @@ import "./userCard.css";
 
 const UserCard = () => {
   const [users, setUsers] = useState([]);
-  const latestUsersUrl = "http://localhost:3000/new_users";
+  const latestUsersUrl = "http://localhost:3000/recent_users";
 
   useEffect(() => {
     const fetchData = () => {
