@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
+import { getLatestUsers } from "./../../services/users";
 import "./userCard.css";
 
 const UserCard = () => {
   const [users, setUsers] = useState([]);
-  const latestUsersUrl = "http://localhost:3000/recent_users";
 
   useEffect(() => {
-    const fetchData = () => {
-      const userApiUrl = latestUsersUrl;
-      fetch(userApiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          const userInfo = data.map((person) => {
-            return {
-              id: person.id,
-              firstName: person.first_name,
-              lastName: person.last_name,
-              country: person.country,
-              state: person.state,
-              avatar: person.avatar,
-            };
-          });
-          setUsers(...users, userInfo);
+    let mounted = true;
+    getLatestUsers().then((data) => {
+      if (mounted) {
+        const userInfo = data.map((person) => {
+          return {
+            id: person.id,
+            firstName: person.first_name,
+            lastName: person.last_name,
+            country: person.country,
+            state: person.state,
+            avatar: person.avatar,
+          };
         });
-    };
-    fetchData();
+        setUsers(...users, userInfo);
+      }
+    });
+    return () => (mounted = false);
   }, []);
 
   if (!users) return "";

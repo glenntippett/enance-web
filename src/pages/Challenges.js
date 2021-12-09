@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../components/Container/Container";
-import Markdown from 'markdown-to-jsx';
+import { getChallenges } from "./../services/challenges";
 
 export const Challenges = () => {
-  const [challenge, setChallenge] = useState('');
+  const [challenges, setChallenges] = useState([]);
 
   const ulStyles = {
     display: "flex",
@@ -18,9 +18,9 @@ export const Challenges = () => {
 
   const containerCard = {
     padding: "8px 36px",
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
   };
 
   const card = {
@@ -30,15 +30,31 @@ export const Challenges = () => {
     borderRadius: "8px",
     border: "1px solid black",
     padding: "8px 16px",
-    margin: "16px 24px"
+    margin: "16px 24px",
   };
 
   const cardText = {
     marginTop: "16px",
   };
 
-  fetch('https://enance.s3.ap-southeast-2.amazonaws.com/test-markdown.md')
-  .then(response => response.text()).then((data) => setChallenge(data));
+  useEffect(() => {
+    let mounted = true;
+    getChallenges().then((data) => {
+      if (mounted) {
+        const challengesInfo = data.map((challenge) => {
+          return {
+            id: challenge.id,
+            title: challenge.title,
+            description: challenge.description,
+          };
+        });
+        setChallenges(...challenges, challengesInfo);
+      }
+    });
+    return () => (mounted = false);
+  }, []);
+
+  if (!challenges) return "";
 
   return (
     <Container>
@@ -56,35 +72,13 @@ export const Challenges = () => {
 
       <hr />
 
-      <Markdown>
-        {challenge}
-      </Markdown>
-
       <section style={containerCard}>
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
-        <article style={card}>
-          <h5>Lorem Ipsum Dolor</h5>
-          <p style={cardText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            ratione!
-          </p>
-        </article>
-
+        {challenges.map((challenge) => (
+          <article style={card} key={challenge.id}>
+									<h5>{challenge.title.length > 20 ? `${challenge.title.substring(0, 22)}...` : challenge.title}</h5>
+									<p style={cardText}>{challenge.description.length > 100 ? `${challenge.description.substring(0, 100)}...` : challenge.description}</p>
+          </article>
+        ))}
       </section>
     </Container>
   );
