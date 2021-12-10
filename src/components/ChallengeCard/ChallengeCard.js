@@ -1,8 +1,10 @@
-export const ChallengeCard = ({ id, title, description, challengeType, card, cardText }) => {
+import './ChallengeCard.css';
+
+export const ChallengeCard = ({ id, title, description, challengeType }) => {
 	return (
-		<article style={card} key={id}>
+		<article className="card" key={id}>
 			<h5>{title.length > 20 ? `${title.substring(0, 22)}...` : title}</h5>
-			<p style={cardText}>
+			<p className="cardText">
 				{description.length > 100 ? `${description.substring(0, 100)}...` : description}
 			</p>
 		</article>

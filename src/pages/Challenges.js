@@ -4,41 +4,10 @@ import { getChallenges } from "./../services/challenges";
 import { ChallengeCard } from './../components/ChallengeCard/ChallengeCard';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import './../components/ChallengeCard/ChallengeCard.css';
 
 export const Challenges = () => {
   const [challenges, setChallenges] = useState([]);
-
-  const ulStyles = {
-    display: "flex",
-    listStyleType: "none",
-    marginTop: "48px",
-  };
-
-  const liStyles = {
-    marginRight: "24px",
-    fontSize: "24px",
-  };
-
-  const containerCard = {
-    padding: "8px 36px",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  };
-
-  const card = {
-    height: "156px",
-    width: "359px",
-    background: "#FFFBDF",
-    borderRadius: "8px",
-    border: "1px solid black",
-    padding: "8px 16px",
-    margin: "16px 24px",
-  };
-
-  const cardText = {
-    marginTop: "16px",
-  };
 
   useEffect(() => {
     let mounted = true;
@@ -76,60 +45,52 @@ export const Challenges = () => {
     		</TabList>
 				
 				<TabPanel>
-					<section style={containerCard}>
+					<section className="containerCard">
 						{challenges.filter(challenge => challenge.challenge_type === 'frontend').map((challenge) => (
 							<ChallengeCard
 								id={challenge.id}
 								title={challenge.title}
 								description={challenge.description}
 								challengeType={challenge.challenge_type}
-								card={card}
-								cardText={cardText}
 							/>	
 						))}
 					</section>
    	 		</TabPanel>
 
 				<TabPanel>
-					<section style={containerCard}>
+					<section className="containerCard">
 						{challenges.filter(challenge => challenge.challenge_type === 'backend').map((challenge) => (
 							<ChallengeCard
 								id={challenge.id}
 								title={challenge.title}
 								description={challenge.description}
 								challengeType={challenge.challenge_type}
-								card={card}
-								cardText={cardText}
 							/>	
 						))}
 					</section>
    	 		</TabPanel>
   		
 				<TabPanel>
-					<section style={containerCard}>
+					<section className="containerCard">
 						{challenges.filter(challenge => challenge.challenge_type === 'fullstack').map((challenge) => (
 							<ChallengeCard
 								id={challenge.id}
 								title={challenge.title}
 								description={challenge.description}
 								challengeType={challenge.challenge_type}
-								card={card}
-								cardText={cardText}
 							/>	
 						))}
 					</section>
    	 		</TabPanel>
 
 				<TabPanel>
-					<section style={containerCard}>
+					<section className="containerCard">
 						{challenges.filter(challenge => challenge.challenge_type === 'algorithms').map((challenge) => (
 							<ChallengeCard
 								id={challenge.id}
 								title={challenge.title}
 								description={challenge.description}
 								challengeType={challenge.challenge_type}
-								card={card}
-								cardText={cardText}
 							/>	
 						))}
 					</section>

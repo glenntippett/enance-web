@@ -1,0 +1,31 @@
+.ulStyles {
+  display: flex;
+  list-style-type: none;
+  margin-top: 48px;
+}
+
+.liStyles {
+  margin-right: 24px;
+  fontSize: 24px;
+}
+
+.containerCard {
+  padding: 8px 36px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  height: 156px;
+  width: 359px;
+  background: #FFFBDF;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 8px 16px;
+  margin: 16px 24px;
+}
+
+.cardText {
+  margin-top: 16px;
+}
