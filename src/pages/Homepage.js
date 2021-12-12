@@ -11,7 +11,7 @@ export const Homepage = () => {
           <Flex align="start" direction="column" justify="center" h="100%">
             <Box maxW='50%'>
               <Heading as="h3" py={4}>
-                Showcasing junior developers to recruiters
+                Showcasing Junior Developers to Recruiters
               </Heading>
               <Text pb={4}>
                 Enance is a platform to showcase junior developers as well as be
