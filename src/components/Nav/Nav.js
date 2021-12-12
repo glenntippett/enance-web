@@ -1,4 +1,3 @@
-import "./nav.css";
 import { Button, Flex, Spacer, Heading, Tag } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
