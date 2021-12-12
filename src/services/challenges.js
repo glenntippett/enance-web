@@ -1,5 +1,9 @@
-export const getChallenges = () => {
-  return fetch("http://localhost:3000/coding_challenges").then((response) =>
-    response.json()
-  );
+export const getChallenges = async () => {
+  const response = await fetch("http://localhost:3000/coding_challenges");
+  return await response.json();
+};
+
+export const getChallenge = async (id) => {
+  const response = await fetch(`http://localhost:3000/coding_challenges/${id}`);
+  return await response.json();
 };

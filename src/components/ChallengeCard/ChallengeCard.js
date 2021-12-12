@@ -1,3 +1,5 @@
+import { ButtonPrimary } from '../Button/Button';
+import { Link } from 'react-router-dom';
 import './ChallengeCard.css';
 
 export const ChallengeCard = ({ id, title, description, challengeType }) => {
@@ -7,6 +9,9 @@ export const ChallengeCard = ({ id, title, description, challengeType }) => {
 			<p className="cardText">
 				{description.length > 100 ? `${description.substring(0, 100)}...` : description}
 			</p>
+			<Link to={`/challenges/${id}`}>
+				<ButtonPrimary buttonText="View challenge"/>
+			</Link>
 		</article>
 	);
 };

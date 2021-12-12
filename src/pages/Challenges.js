@@ -21,7 +21,7 @@ export const Challenges = () => {
 						challenge_type: challenge.challenge_type,
           };
         });
-        setChallenges(...challenges, challengesInfo);
+        setChallenges(challengesInfo);
 			}
     });
     return () => (mounted = false);

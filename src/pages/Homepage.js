@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonPrimary from "../components/Button/Button";
+import { ButtonPrimary } from "../components/Button/Button";
 import Container from "../components/Container/Container";
 import Banner from "../components/Banner/Banner";
 import UserCard from "../components/UserCard/UserCard";

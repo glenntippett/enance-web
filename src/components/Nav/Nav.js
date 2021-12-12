@@ -1,5 +1,5 @@
 import "./nav.css";
-import ButtonPrimary from "./../Button/Button";
+import { ButtonPrimary } from "./../Button/Button";
 import { Link } from "react-router-dom";
 
 const Nav = () => {

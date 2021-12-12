@@ -19,7 +19,7 @@ const UserCard = () => {
             avatar: person.avatar,
           };
         });
-        setUsers(...users, userInfo);
+        setUsers(userInfo);
       }
     });
     return () => (mounted = false);
