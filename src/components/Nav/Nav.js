@@ -1,38 +1,51 @@
 import "./nav.css";
-import { ButtonPrimary } from "./../Button/Button";
+import { Button, Flex, Spacer, Heading, Tag } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
+  const tagHover = {
+    background: "#F7F7F7",
+    color: "teal.500",
+    cursor: "pointer",
+  };
+
   return (
-    <nav className="nav">
-      <ul>
-        <Link to="/">
-          <h5>Enance</h5>
-        </Link>
-        <Link to="#">
-          <li>Profiles</li>
-        </Link>
-        <Link to="#">
-          <li>About</li>
-        </Link>
+    <Flex align="center" h="64px" pl={16} pr={16} borderBottom='1px' borderColor='gray.200'>
+      <Flex align="center">
+        <Heading size="md" pr={8}>
+          <Link to="/">Enance</Link>
+        </Heading>
+
+        <Tag mr={4} px={4} py={2} _hover={tagHover}>
+          <Link to="#">Profiles</Link>
+        </Tag>
+
+        <Tag mr={4} px={4} py={2} _hover={tagHover}>
+          <Link to="#">About</Link>
+        </Tag>
+
         <Link to="/challenges">
-          <li>Challenges</li>
+          <Tag mr={4} px={4} py={2} _hover={tagHover}>
+            Challenges
+          </Tag>
         </Link>
-        <Link to="#">
-          <li>Contact</li>
-        </Link>
-      </ul>
-      <ul className="container-login-signup-links">
-        <Link to="#">
-          <li>Login</li>
-        </Link>
-        <Link to="#">
-          <li>
-            <ButtonPrimary buttonText="Get Started" />
-          </li>
-        </Link>
-      </ul>
-    </nav>
+        <Tag mr={4} px={4} py={2} _hover={tagHover}>
+          <Link to="#">Contact</Link>
+        </Tag>
+      </Flex>
+
+      <Spacer />
+
+      <Flex align="center">
+        <Tag mr={4} px={4} py={2} _hover={tagHover}>
+          <Link to="#">Login</Link>
+        </Tag>
+
+        <Button colorScheme="pink" variant="solid">
+          <Link to="#">Get Started</Link>
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 

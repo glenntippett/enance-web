@@ -1,6 +1,13 @@
+import {
+  Box,
+  Image,
+  Heading,
+  Text,
+  Badge,
+  Wrap,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getLatestUsers } from "./../../services/users";
-import "./userCard.css";
 
 const UserCard = () => {
   const [users, setUsers] = useState([]);
@@ -28,18 +35,28 @@ const UserCard = () => {
   if (!users) return "";
 
   return (
-    <section className="container-new-users">
+    <Wrap justify='center' spacing='24px'>
       {users.map((user) => (
-        <article key={user.id} className="card-new-user">
-          <h6 className="user-name">
-            {user.firstName} {user.lastName}
-          </h6>
-          <img src={user.avatar} alt="User" />
-          <p className="user-job">Front-end Developer</p>
-          <span className="skill">JavaScript</span>
-        </article>
+        <Box
+          key={user.id}
+          maxW="sm"
+          minW="sm"
+          borderWidth="1px"
+          borderRadius="lg"
+        >
+          <Image src={user.avatar} htmlWidth={384} loading="lazy" />
+          <Box p="6">
+            <Heading as="h6">
+              {user.firstName} {user.lastName}
+            </Heading>
+            <Text>Front-end Developer</Text>
+            <Badge borderRadius="full" px="2" colorScheme="teal">
+              JavaScript
+            </Badge>
+          </Box>
+        </Box>
       ))}
-    </section>
+    </Wrap>
   );
 };
 
