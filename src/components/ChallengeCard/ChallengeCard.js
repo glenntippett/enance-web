@@ -28,7 +28,7 @@ export const ChallengeCard = ({ id, title, description }) => {
             <Button
               size="sm"
               colorScheme="teal"
-              mt={2}
+              mt={4}
               variant="outline"
               rightIcon={<InfoIcon />}
             >
