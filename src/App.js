@@ -4,7 +4,7 @@ import { Challenges } from "./pages/Challenges";
 import { Homepage } from "./pages/Homepage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Challenge } from "./pages/Challenge";
-import { Blog } from "./pages/blog";
+import { Blog } from "./pages/Blog";
 
 export const App = () => {
   return (

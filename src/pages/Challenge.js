@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "@chakra-ui/react";
+import { Heading, Container } from "@chakra-ui/react";
 import { getChallenge } from "../services/challenges";
 
 export const Challenge = ({ match }) => {
@@ -15,7 +15,9 @@ export const Challenge = ({ match }) => {
 
   return (
     <Container maxW="container.xl">
-      <h3>{challenge.title}</h3>
+      <Heading as="h4" py={8}>
+        {challenge.title}
+      </Heading>
       <p>{challenge.description}</p>
     </Container>
   );
