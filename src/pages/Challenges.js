@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Heading } from '@chakra-ui/react';
-import { Container } from "@chakra-ui/react";
-import { Wrap } from "@chakra-ui/react";
+import {
+  Heading,
+  Wrap,
+  Container,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 import { getChallenges } from "./../services/challenges";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+// import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 export const Challenges = () => {
@@ -38,37 +45,41 @@ export const Challenges = () => {
 
   return (
     <Container maxW="container.xl">
-      <Heading as='h4' py={8}>
+      <Heading as="h4" py={8}>
         Technical <br />
         Challenges
       </Heading>
 
-      <Tabs>
+      <Tabs variant='enclosed'>
         <TabList>
           {challengeTypes.map((type) => (
-            <Tab>{`${type.charAt(0).toUpperCase()}${type.toLowerCase().slice(1)}`}</Tab>
+            <Tab>{`${type.charAt(0).toUpperCase()}${type
+              .toLowerCase()
+              .slice(1)}`}</Tab>
           ))}
         </TabList>
 
-        {challengeTypes.map((type) => (
-          <TabPanel>
-            <Wrap justify="center">
-              {challenges
-                .filter(
-                  (challenge) =>
-                    challenge.challenge_type === `${type.toLowerCase()}`
-                )
-                .map((challenge) => (
-                  <ChallengeCard
-                    id={challenge.id}
-                    title={challenge.title}
-                    description={challenge.description}
-                    challengeType={challenge.challenge_type}
-                  />
-                ))}
-            </Wrap>
-          </TabPanel>
-        ))}
+        <TabPanels>
+          {challengeTypes.map((type) => (
+            <TabPanel>
+              <Wrap justify="center">
+                {challenges
+                  .filter(
+                    (challenge) =>
+                      challenge.challenge_type === `${type.toLowerCase()}`
+                  )
+                  .map((challenge) => (
+                    <ChallengeCard
+                      id={challenge.id}
+                      title={challenge.title}
+                      description={challenge.description}
+                      challengeType={challenge.challenge_type}
+                    />
+                  ))}
+              </Wrap>
+            </TabPanel>
+          ))}
+        </TabPanels>
       </Tabs>
     </Container>
   );

@@ -50,7 +50,7 @@ const UserCard = () => {
               {user.firstName} {user.lastName}
             </Heading>
             <Text>Front-end Developer</Text>
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge px="2" colorScheme="teal">
               JavaScript
             </Badge>
           </Box>
