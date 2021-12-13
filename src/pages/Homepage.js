@@ -11,7 +11,7 @@ import {
   WrapItem,
   VStack,
   HStack,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import { Container } from "@chakra-ui/react";
 import UserCard from "../components/UserCard/UserCard";
@@ -20,7 +20,7 @@ export const Homepage = () => {
   return (
     <>
       <Box backgroundColor="#FFFBDF" h="400px">
-        <Stack direction={['column', 'row']}>
+        <Stack direction={["column", "row"]}>
           <VStack>
             <Heading as="h3" py={4}>
               Showcasing Junior Developers to Recruiters

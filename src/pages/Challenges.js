@@ -50,7 +50,7 @@ export const Challenges = () => {
         Challenges
       </Heading>
 
-      <Tabs variant='enclosed'>
+      <Tabs variant="enclosed">
         <TabList>
           {challengeTypes.map((type) => (
             <Tab>{`${type.charAt(0).toUpperCase()}${type
