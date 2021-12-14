@@ -18,8 +18,10 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  InputRightElement
+  InputRightElement,
+  FormErrorMessage,
 } from "@chakra-ui/react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { userLogin } from "../../services/Authentication";
 import { Link } from "react-router-dom";
 
@@ -84,7 +86,7 @@ const Nav = () => {
         </Tag>
 
         <Button colorScheme="pink" variant="solid">
-          <Link to="#">Get Started</Link>
+          <Link to="/sign_up">Get Started</Link>
         </Button>
 
         {/* Login Modal */}
@@ -100,34 +102,96 @@ const Nav = () => {
             <ModalHeader>Login</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input ref={initialRef} placeholder="email@example.com" />
-              </FormControl>
-
-              <FormControl mt={4}>
-                <FormLabel>Password</FormLabel>
-                <InputGroup size="md">
-                  <Input
-                    pr="4.5rem"
-                    type={show ? "text" : "password"}
-                    placeholder="Enter password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                      {show ? "Hide" : "Show"}
+              <Formik
+                initialValues={{ email: "", password: "" }}
+                validate={(values) => {
+                  const errors = {};
+                  if (!values.password) {
+                    errors.password = "Required";
+                  } 
+                  if (!values.email) {
+                    errors.email = "Required";
+                  } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                      values.email
+                    )
+                  ) {
+                    errors.email = "Invalid email address";
+                  }
+                  return errors;
+                }}
+                onSubmit={(values, { setSubmitting }) => {
+                  setTimeout(() => {
+                    setSubmitting(false);
+                  }, 400);
+                  userLogin(values);
+                }}
+              >
+                {(props) => (
+                  <Form>
+                    <Field name="email">
+                      {({ field, form }) => (
+                        <FormControl
+                          isInvalid={form.errors.email && form.touched.email}
+                        >
+                          <FormLabel htmlFor="email">Email</FormLabel>
+                          <Input
+                            {...field}
+                            id="email"
+                            placeholder="hello@there.com"
+                          />
+                          <FormErrorMessage>
+                            {form.errors.email}
+                          </FormErrorMessage>
+                        </FormControl>
+                      )}
+                    </Field>
+                    <Field name="password">
+                      {({ field, form }) => (
+                        <FormControl
+                          isInvalid={
+                            form.errors.password && form.touched.password
+                          }
+                        >
+                          <FormLabel htmlFor="password">Password</FormLabel>
+                          <InputGroup>
+                            <Input
+                              {...field}
+                              id="password"
+                              placeholder="Password"
+                              type={show ? "text" : "password"}
+                            />
+                            <InputRightElement width="4.5rem">
+                              <Button
+                                h="1.75rem"
+                                size="sm"
+                                onClick={handleClick}
+                              >
+                                {show ? "Hide" : "Show"}
+                              </Button>
+                            </InputRightElement>
+                          </InputGroup>
+                          <FormErrorMessage>
+                            {form.errors.password}
+                          </FormErrorMessage>
+                        </FormControl>
+                      )}
+                    </Field>
+                    <Button
+                      mt={4}
+                      colorScheme="blue"
+                      isLoading={props.isSubmitting}
+                      type="submit"
+                    >
+                      Login
                     </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
+                    <Button onClick={onClose} mt={4} ml={4}>
+                      Cancel
+                    </Button>
+                  </Form>
+                )}
+              </Formik>
             </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
-                Login
-              </Button>
-              <Button onClick={onClose}>Cancel</Button>
-            </ModalFooter>
           </ModalContent>
         </Modal>
       </Flex>
