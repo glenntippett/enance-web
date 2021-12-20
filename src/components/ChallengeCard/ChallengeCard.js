@@ -2,7 +2,7 @@ import { Button, WrapItem, Heading, Box, Text } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
-export const ChallengeCard = ({ id, title, description }) => {
+export const ChallengeCard = ({ id, title }) => {
   return (
     <WrapItem
       backgroundColor="#FFFBDF"
@@ -17,11 +17,11 @@ export const ChallengeCard = ({ id, title, description }) => {
           <Heading as="h5" mb={2} noOfLines={1}>
             {title.length > 20 ? `${title.substring(0, 22)}...` : title}
           </Heading>
-          <Text noOfLines={2}>
+          {/* <Text noOfLines={2}>
             {description.length > 100
               ? `${description.substring(0, 100)}...`
               : description}
-          </Text>
+          </Text> */}
         </Box>
         <Box>
           <Link to={`/challenges/${id}`}>

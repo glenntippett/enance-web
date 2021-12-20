@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Heading, Container } from "@chakra-ui/react";
-import { getChallenge } from "../services/challenges";
 import Markdown from "markdown-to-jsx";
+import CodingChallengeDataService from './../services/codingChallenges';
 
 export const Challenge = ({ match }) => {
   const [challenge, setChallenge] = useState({});
 
   useEffect(() => {
-    getChallenge().then((data) => {
+    CodingChallengeDataService.get(match).then((data) => {
       console.log(data)
       setChallenge(data);
     });

@@ -9,38 +9,30 @@ import {
   Tab,
   TabPanel,
 } from "@chakra-ui/react";
-import { getChallenges } from "./../services/challenges";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
+
+import CodingChallengeDataService from "./../services/codingChallenges";
 
 export const Challenges = () => {
   const [challenges, setChallenges] = useState([]);
   const [challengeTypes, setChallengeTypes] = useState([]);
 
   useEffect(() => {
-    let mounted = true;
-    getChallenges().then((data) => {
-      if (mounted) {
-        const challengesInfo = data.map((challenge) => {
-          return {
-            id: challenge.id,
-            title: challenge.title,
-            description: challenge.description,
-            challenge_type: challenge.challenge_type,
-          };
-        });
-        setChallenges(challengesInfo);
-        setChallengeTypes([
-          ...new Set(
-            challengesInfo.map((challenge) => challenge.challenge_type)
-          ),
-        ]);
-      }
-    });
-    return () => (mounted = false);
+    retrieveCodingChallenges();
   }, []);
 
-  if (!challenges) return "";
+  const retrieveCodingChallenges = () => {
+    CodingChallengeDataService.getAll().then((response) => {
+      console.log(response.data);
+      setChallenges(response.data.coding_challenges);
+      setChallengeTypes([
+        ...new Set(response.data.coding_challenges.map((challenge) => challenge.challenge_type)),
+      ]);
+    });
+  };
+
+  if (!challenges || !challengeTypes) return "";
 
   return (
     <Container maxW="container.xl">

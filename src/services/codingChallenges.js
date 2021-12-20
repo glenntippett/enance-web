@@ -14,4 +14,4 @@ class CodingChallengeDataService {
   }
 }
 
-export default CodingChallengeDataService();
+export default new CodingChallengeDataService();
