@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { getChallenges } from "./../services/challenges";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
-// import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 export const Challenges = () => {

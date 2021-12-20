@@ -5,6 +5,7 @@ import { Homepage } from "./pages/Homepage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Challenge } from "./pages/Challenge";
 import { Blog } from "./pages/Blog";
+import { Profile } from "./pages/Profile";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/challenges" exact component={Challenges} />
           <Route path="/challenges/:id" component={Challenge}/>
           <Route path="/blog/" exact component={Blog}/>
+          <Route path="/profile" exact component={Profile}/>
         </Switch>
       </div>
     </Router>

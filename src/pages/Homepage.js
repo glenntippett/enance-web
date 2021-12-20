@@ -15,6 +15,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import UserCard from "../components/UserCard/UserCard";
+import { GetStartedButton } from "../services/Authentication";
 
 export const Homepage = () => {
   return (
@@ -31,9 +32,7 @@ export const Homepage = () => {
                 a community for developers to discuss and share ideas
               </Text>
 
-              <Button colorScheme="pink" variant="solid">
-                Get Started
-              </Button>
+              <GetStartedButton />
             </Box>
           </VStack>
 
@@ -52,7 +51,6 @@ export const Homepage = () => {
         <Heading as="h4" py={8}>
           Recent Signups
         </Heading>
-        <UserCard />
       </Container>
     </>
   );

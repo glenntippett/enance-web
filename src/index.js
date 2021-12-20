@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import "focus-visible/dist/focus-visible";
 import { Global, css } from "@emotion/react";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const GlobalStyles = css`
   /*
@@ -18,13 +19,20 @@ const GlobalStyles = css`
   }
 `;
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 ReactDOM.render(
-  <React.StrictMode>
-    <ChakraProvider>
-      <Global styles={GlobalStyles} />
-      <App />
-    </ChakraProvider>
-  </React.StrictMode>,
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      redirectUri={window.location.origin}
+    >
+      <ChakraProvider>
+        <Global styles={GlobalStyles} />
+        <App />
+      </ChakraProvider>
+    </Auth0Provider>,
   document.getElementById("root")
 );
 

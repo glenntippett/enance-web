@@ -1,35 +1,28 @@
 import React from "react";
+
 import {
-  Button,
   Flex,
   Spacer,
   Heading,
-  Tag,
   Text,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
+  Avatar,
   useDisclosure,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputRightElement
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
 } from "@chakra-ui/react";
-import { userLogin } from "../../services/Authentication";
 import { Link } from "react-router-dom";
+import { LoginButton, LogoutButton } from "../../services/Authentication";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
+  const { user, isAuthenticated } = useAuth0();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [show, setShow] = React.useState(false);
-  const handleClick = () => setShow(!show);
-
-  const initialRef = React.useRef();
-  const finalRef = React.useRef();
+  const btnRef = React.useRef();
 
   const textHover = {
     background: "#F7F7F7",
@@ -50,10 +43,6 @@ const Nav = () => {
         <Heading size="lg" pr={8}>
           <Link to="/">Enance</Link>
         </Heading>
-
-        <Text mr={4} px={4} py={2} _hover={textHover}>
-          <Link to="#">Profiles</Link>
-        </Text>
 
         <Text mr={4} px={4} py={2} _hover={textHover}>
           <Link to="#">About</Link>
@@ -79,57 +68,34 @@ const Nav = () => {
       <Spacer />
 
       <Flex align="center">
-        <Tag mr={4} px={4} py={2} _hover={textHover} onClick={onOpen}>
-          <Link to="#">Login</Link>
-        </Tag>
+        {!isAuthenticated && <LoginButton hover={textHover} />}
+        {isAuthenticated && (
+          <>
+            <Popover>
+              <PopoverTrigger>
+                <Flex align="center" mr={4} ref={btnRef} onClick={onOpen}>
+                  <Text mr={2}>{user.name}</Text>
+                  <Avatar src={user.picture} size="sm" name={user.name} />
+                </Flex>
+              </PopoverTrigger>
 
-        <Button colorScheme="pink" variant="solid">
-          <Link to="#">Get Started</Link>
-        </Button>
-
-        {/* Login Modal */}
-        <Modal
-          initialFocusRef={initialRef}
-          finalFocusRef={finalRef}
-          isOpen={isOpen}
-          onClose={onClose}
-          isCentered
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Login</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input ref={initialRef} placeholder="email@example.com" />
-              </FormControl>
-
-              <FormControl mt={4}>
-                <FormLabel>Password</FormLabel>
-                <InputGroup size="md">
-                  <Input
-                    pr="4.5rem"
-                    type={show ? "text" : "password"}
-                    placeholder="Enter password"
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverBody>
+                  <Link to="/profile">Profile</Link>
+                  <Text>Something</Text>
+                </PopoverBody>
+                <PopoverFooter>
+                  <LogoutButton
+                    hover={textHover}
+                    onClick={onClose}
                   />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                      {show ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
-                Login
-              </Button>
-              <Button onClick={onClose}>Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+                </PopoverFooter>
+              </PopoverContent>
+            </Popover>
+          </>
+        )}
       </Flex>
     </Flex>
   );
