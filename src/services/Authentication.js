@@ -1,7 +1,15 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Icon, Link } from "@chakra-ui/react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import { Route } from 'react-router-dom';
+import { Button, Icon } from "@chakra-ui/react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
+
+export const ProtectedRoute = ({ component, ...args }) => (
+  <Route
+    component={withAuthenticationRequired(component)}
+    {...args}
+  />
+);
 
 export const LoginButton = ({ hover }) => {
   const { loginWithRedirect } = useAuth0();

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Challenge } from "./pages/Challenge";
 import { Blog } from "./pages/Blog";
 import { Profile } from "./pages/Profile";
+import { ProtectedRoute } from "./services/Authentication";
 
 export const App = () => {
   return (
@@ -14,10 +15,10 @@ export const App = () => {
         <Nav />
         <Switch>
           <Route path="/" exact component={Homepage} />
-          <Route path="/challenges" exact component={Challenges} />
-          <Route path="/challenges/:id" component={Challenge}/>
-          <Route path="/blog/" exact component={Blog}/>
-          <Route path="/profile" exact component={Profile}/>
+          <ProtectedRoute path="/challenges" exact component={Challenges} />
+          <ProtectedRoute path="/challenges/:id" component={Challenge}/>
+          <ProtectedRoute path="/blog/" exact component={Blog}/>
+          <ProtectedRoute path="/profile" exact component={Profile}/>
         </Switch>
       </div>
     </Router>
