@@ -8,6 +8,8 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  FormControl, 
+  Input,
 } from "@chakra-ui/react";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
@@ -24,12 +26,22 @@ export const Challenges = () => {
 
   const retrieveCodingChallenges = () => {
     CodingChallengeDataService.getAll().then((response) => {
-      console.log(response.data);
       setChallenges(response.data.coding_challenges);
       setChallengeTypes([
         ...new Set(response.data.coding_challenges.map((challenge) => challenge.challenge_type)),
       ]);
     });
+  };
+
+  const handleChange = (e) => {
+    const query = e.target.value;
+    CodingChallengeDataService.find(query)
+      .then(response => {
+        setChallenges(response.data.coding_challenges);
+      })
+      .catch(e => {
+        console.error(`Error filtering by ${query}: ${e}`);
+      });
   };
 
   if (!challenges || !challengeTypes) return "";
@@ -50,6 +62,11 @@ export const Challenges = () => {
           ))}
         </TabList>
 
+
+        <FormControl maxW="25%">
+          <Input id='challenge-name' placeholder='Search...' mt={4} onChange={handleChange}/>
+        </FormControl>
+
         <TabPanels>
           {challengeTypes.map((type) => (
             <TabPanel>
@@ -61,7 +78,7 @@ export const Challenges = () => {
                   )
                   .map((challenge) => (
                     <ChallengeCard
-                      id={challenge.id}
+                      id={challenge._id}
                       title={challenge.title}
                       description={challenge.description}
                       challengeType={challenge.challenge_type}
