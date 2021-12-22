@@ -34,7 +34,7 @@ export const Challenge = (props) => {
     getMarkdown(challenge.url);
   }, [props.match.params.id, challenge.url]);
 
-  if (!challenge || !challengeDescription) return "";
+  if (!challenge || !challengeDescription) return "Loading...";
 
   return (
     <Container maxW={{ sm: '90%', md: '75%', lg: '50%' }}>
