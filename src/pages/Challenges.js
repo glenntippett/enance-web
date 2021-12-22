@@ -55,9 +55,9 @@ export const Challenges = () => {
   };
 
   const handleIconClick = () => {
-    setSearch('');
-    document.querySelector('.searchInput').value = '';
-  }
+    setSearch("");
+    document.querySelector(".searchInput").value = "";
+  };
 
   if (!challenges || !challengeTypes) return "";
 
@@ -98,10 +98,17 @@ export const Challenges = () => {
               placeholder="Search..."
               mt={4}
               onChange={handleChange}
-              className='searchInput'
+              className="searchInput"
             />
-            <InputRightElement mt={4}
-              children={<IconButton size="xs" icon={<DeleteIcon />} onClick={handleIconClick} />}
+            <InputRightElement
+              mt={4}
+              children={
+                <IconButton
+                  size="xs"
+                  icon={<DeleteIcon />}
+                  onClick={handleIconClick}
+                />
+              }
             />
           </InputGroup>
         </FormControl>
