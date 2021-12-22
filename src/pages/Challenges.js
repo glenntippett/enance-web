@@ -91,17 +91,15 @@ export const Challenges = () => {
           ))}
         </TabList>
 
-        <FormControl maxW={{ sm: "100%%", md: "50%", lg: "25%" }}>
+        <FormControl mt={4} maxW={{ sm: "100%%", md: "50%", lg: "25%" }}>
           <InputGroup>
             <Input
               id="challenge-name"
               placeholder="Search..."
-              mt={4}
               onChange={handleChange}
               className="searchInput"
             />
             <InputRightElement
-              mt={4}
               children={
                 <IconButton
                   size="xs"
