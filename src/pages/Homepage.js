@@ -7,7 +7,6 @@ import {
   Center,
   VStack,
   Stack,
-  Container,
 } from "@chakra-ui/react";
 import { GetStartedButton } from "../services/Authentication";
 
