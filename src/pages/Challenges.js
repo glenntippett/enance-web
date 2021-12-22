@@ -11,7 +11,11 @@ import {
   FormControl,
   Input,
   Text,
+  IconButton,
+  InputRightElement,
+  InputGroup,
 } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
 
@@ -20,10 +24,13 @@ import CodingChallengeDataService from "./../services/codingChallenges";
 export const Challenges = () => {
   const [challenges, setChallenges] = useState([]);
   const [challengeTypes, setChallengeTypes] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    retrieveCodingChallenges();
-  }, []);
+    if (!search) {
+      retrieveCodingChallenges();
+    }
+  }, [search]);
 
   const retrieveCodingChallenges = () => {
     CodingChallengeDataService.getAll().then((response) => {
@@ -39,15 +46,18 @@ export const Challenges = () => {
   };
 
   const handleChange = (e) => {
-    const query = e.target.value;
-    CodingChallengeDataService.find(query)
-      .then((response) => {
-        setChallenges(response.data.coding_challenges);
-      })
-      .catch((e) => {
-        console.error(`Error filtering by ${query}: ${e}`);
-      });
+    setSearch(e.target.value);
+    setChallenges(
+      challenges.filter((challenge) =>
+        challenge.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
   };
+
+  const handleIconClick = () => {
+    setSearch('');
+    document.querySelector('.searchInput').value = '';
+  }
 
   if (!challenges || !challengeTypes) return "";
 
@@ -58,11 +68,12 @@ export const Challenges = () => {
         Challenges
       </Heading>
 
-      <Text maxW={{ sm: '100%', md: '75%', lg: '50%' }}>
+      <Text maxW={{ sm: "100%", md: "75%", lg: "50%" }}>
         Below you will find a list of coding challenges that resemble real life
         challenges you may find when applying for jobs.
         <br />
-        These types of challenges may be a command line application, frontend application or both.
+        These types of challenges may be a command line application, frontend
+        application or both.
         <br />
         <br />
         There are also some challenges which are designed to imitate a "day in
@@ -71,7 +82,7 @@ export const Challenges = () => {
         API - all within an existing codebase.
       </Text>
 
-      <Tabs variant="enclosed" mt='2rem'>
+      <Tabs variant="enclosed" mt="2rem">
         <TabList>
           {challengeTypes.map((type) => (
             <Tab>{`${type.charAt(0).toUpperCase()}${type
@@ -80,13 +91,19 @@ export const Challenges = () => {
           ))}
         </TabList>
 
-        <FormControl maxW={{ sm: '100%%', md: '50%', lg: '25%' }}>
-          <Input
-            id="challenge-name"
-            placeholder="Search..."
-            mt={4}
-            onChange={handleChange}
-          />
+        <FormControl maxW={{ sm: "100%%", md: "50%", lg: "25%" }}>
+          <InputGroup>
+            <Input
+              id="challenge-name"
+              placeholder="Search..."
+              mt={4}
+              onChange={handleChange}
+              className='searchInput'
+            />
+            <InputRightElement mt={4}
+              children={<IconButton size="xs" icon={<DeleteIcon />} onClick={handleIconClick} />}
+            />
+          </InputGroup>
         </FormControl>
 
         <TabPanels>
