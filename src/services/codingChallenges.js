@@ -1,16 +1,18 @@
 import axios from 'axios'
 
+const url = 'https://mysterious-dusk-66432.herokuapp.com'
+
 class CodingChallengeDataService {
   getAll(page = 0) {
-    return axios.get(`http://localhost:5000/api/v1/coding_challenges?page=${page}`);
+    return axios.get(`${url}/api/v1/coding_challenges?page=${page}`);
   }
 
   get(id) {
-    return axios.get(`http://localhost:5000/api/v1/coding_challenges/id/${id}`);
+    return axios.get(`${url}/api/v1/coding_challenges/id/${id}`);
   }
 
   find(query, by = 'title', page = 0) {
-    return axios.get(`http://localhost:5000/api/v1/coding_challenges?${by}=${query}&page=${page}`);
+    return axios.get(`${url}/api/v1/coding_challenges?${by}=${query}&page=${page}`);
   }
 
   markdown(url) {
