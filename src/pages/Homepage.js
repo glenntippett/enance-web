@@ -1,20 +1,14 @@
 import React from "react";
 import {
-  Button,
-  Flex,
   Box,
   Heading,
   Text,
   Image,
-  Wrap,
   Center,
-  WrapItem,
   VStack,
-  HStack,
   Stack,
   Container,
 } from "@chakra-ui/react";
-import UserCard from "../components/UserCard/UserCard";
 import { GetStartedButton } from "../services/Authentication";
 
 export const Homepage = () => {
