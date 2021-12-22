@@ -33,6 +33,7 @@ export const Homepage = () => {
           <VStack h="100%" w="100%" justify="center" align="center">
             <Center h="100%" w="100%">
               <Image
+              display={['none', 'none', 'block', 'block']}
                 src={process.env.PUBLIC_URL + "avatar.png"}
                 boxSize="300px"
               />
@@ -40,12 +41,6 @@ export const Homepage = () => {
           </VStack>
         </Stack>
       </Box>
-
-      <Container maxW="container.xl">
-        <Heading as="h4" py={8}>
-          Recent Signups
-        </Heading>
-      </Container>
     </>
   );
 };
