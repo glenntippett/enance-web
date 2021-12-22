@@ -58,11 +58,11 @@ export const Challenges = () => {
         Challenges
       </Heading>
 
-      <Text maxW={{ sm: '100%%', md: '75%', lg: '50%' }}>
+      <Text maxW={{ sm: '100%', md: '75%', lg: '50%' }}>
         Below you will find a list of coding challenges that resemble real life
         challenges you may find when applying for jobs.
         <br />
-        These types of challenges may be a command line, frontend application or both.
+        These types of challenges may be a command line application, frontend application or both.
         <br />
         <br />
         There are also some challenges which are designed to imitate a "day in

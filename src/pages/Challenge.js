@@ -37,8 +37,8 @@ export const Challenge = (props) => {
   if (!challenge || !challengeDescription) return "";
 
   return (
-    <Container maxW="container.lg">
-      <Heading as="h4" py={8}>{challenge.title}</Heading>
+    <Container maxW={{ sm: '90%', md: '75%', lg: '50%' }}>
+      <Heading as="h4"  py={8}>{challenge.title}</Heading>
       <Markdown>{challengeDescription}</Markdown>
     </Container>
   );

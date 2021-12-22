@@ -27,6 +27,8 @@ ReactDOM.render(
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
+      useRefreshTokens
+      cacheLocation="localstorage"
     >
       <ChakraProvider>
         <Global styles={GlobalStyles} />
