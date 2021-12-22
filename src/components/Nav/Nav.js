@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Flex,
   Spacer,
-  Heading,
   Text,
   Avatar,
   useDisclosure,
@@ -14,12 +13,16 @@ import {
   PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
+  IconButton,
 } from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
+import { NavLinks } from "./NavLinks";
 
 const Nav = () => {
+  const [display, setDisplay] = useState("none");
   const { user, isAuthenticated } = useAuth0();
   const { onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -30,6 +33,12 @@ const Nav = () => {
     borderRadius: "8px",
   };
 
+  console.log(display)
+
+  useEffect(() => {
+    // ...
+  }, [display]);
+
   return (
     <Flex
       align="center"
@@ -39,31 +48,27 @@ const Nav = () => {
       borderBottom="1px"
       borderColor="gray.200"
     >
-      <Flex align="center">
-        <Heading size="lg" pr={8}>
-          <Link to="/">Enance</Link>
-        </Heading>
+      <IconButton
+        aria-label="Open Menu"
+        size="md"
+        mr={2}
+        icon={display === 'none' ? <HamburgerIcon /> : <CloseIcon />}
+        display={["flex", "flex", "none", "none"]}
+        onClick={() => display === 'flex' ? setDisplay('none') : setDisplay('flex')}
+      />
 
-        <Text mr={4} px={4} py={2} _hover={textHover}>
-          <Link to="#">About</Link>
-        </Text>
+      <NavLinks textHoverStyle={textHover} display={display} />
 
-        <Link to="/challenges">
-          <Text mr={4} px={4} py={2} _hover={textHover}>
-            Challenges
-          </Text>
-        </Link>
 
-        <Link to="/blog">
-          <Text mr={4} px={4} py={2} _hover={textHover}>
-            Blog
-          </Text>
-        </Link>
-
-        <Text mr={4} px={4} py={2} _hover={textHover}>
-          <Link to="#">Contact</Link>
-        </Text>
-      </Flex>
+      {/* <IconButton
+        mt={2}
+        mr={2}
+        aria-label="Close Menu"
+        size="lg"
+        icon={<CloseIcon />}
+        display={display}
+        onClick={() => setDisplay('none')}
+      /> */}
 
       <Spacer />
 
@@ -87,10 +92,7 @@ const Nav = () => {
                   <Text>Something</Text>
                 </PopoverBody>
                 <PopoverFooter>
-                  <LogoutButton
-                    hover={textHover}
-                    onClick={onClose}
-                  />
+                  <LogoutButton hover={textHover} onClick={onClose} />
                 </PopoverFooter>
               </PopoverContent>
             </Popover>
