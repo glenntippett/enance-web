@@ -1,4 +1,4 @@
-import { Button, WrapItem, Heading, Box, Text } from "@chakra-ui/react";
+import { Button, WrapItem, Heading, Box } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 

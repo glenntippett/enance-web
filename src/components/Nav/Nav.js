@@ -21,7 +21,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
   const { user, isAuthenticated } = useAuth0();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
   const textHover = {
