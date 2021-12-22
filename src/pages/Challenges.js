@@ -59,7 +59,11 @@ export const Challenges = () => {
     document.querySelector(".searchInput").value = "";
   };
 
-  if (!challenges || !challengeTypes) return "";
+  if (!challenges || !challengeTypes) {
+    return (
+      "Loading..."
+    );
+  }
 
   return (
     <Container maxW="container.xl">

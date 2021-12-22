@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Heading, Container } from "@chakra-ui/react";
+import { Heading, Container, Box } from "@chakra-ui/react";
 import Markdown from "markdown-to-jsx";
 import CodingChallengeDataService from './../services/codingChallenges';
+
+import { Oval } from 'react-loading-icons'
 
 export const Challenge = (props) => {
   const [challengeDescription, setChallengeDescription] = useState('')
@@ -34,7 +36,13 @@ export const Challenge = (props) => {
     getMarkdown(challenge.url);
   }, [props.match.params.id, challenge.url]);
 
-  if (!challenge || !challengeDescription) return "Loading...";
+  if (!challenge || !challengeDescription) {
+    return (
+      <Box display="flex" minH="100vh" alignItems="center" justifyContent="center">
+        <Oval stroke="#000" />
+      </Box>
+    )
+  } 
 
   return (
     <Container maxW={{ sm: '90%', md: '75%', lg: '50%' }}>
