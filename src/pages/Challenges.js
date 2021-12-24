@@ -130,6 +130,7 @@ export const Challenges = () => {
                       title={challenge.title}
                       description={challenge.description}
                       challengeType={challenge.challenge_type}
+                      tags={challenge.tags}
                     />
                   ))}
               </Wrap>

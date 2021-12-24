@@ -1,8 +1,8 @@
-import { Button, WrapItem, Heading, Box } from "@chakra-ui/react";
+import { Button, WrapItem, Heading, Box, Tag } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
-export const ChallengeCard = ({ id, title }) => {
+export const ChallengeCard = ({ id, title, tags }) => {
   return (
     <WrapItem
       backgroundColor="#FFFBDF"
@@ -17,12 +17,14 @@ export const ChallengeCard = ({ id, title }) => {
           <Heading as="h5" mb={2} noOfLines={1}>
             {title.length > 20 ? `${title.substring(0, 22)}...` : title}
           </Heading>
-          {/* <Text noOfLines={2}>
-            {description.length > 100
-              ? `${description.substring(0, 100)}...`
-              : description}
-          </Text> */}
+          {tags &&
+            tags.map((tag) => (
+              <Tag mr={4} key={tag} variant="solid" colorScheme="gray">
+                {tag}
+              </Tag>
+            ))}
         </Box>
+
         <Box>
           <Link to={`/challenges/${id}`}>
             <Button
