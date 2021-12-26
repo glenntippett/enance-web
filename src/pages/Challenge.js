@@ -1,52 +1,62 @@
 import React, { useState, useEffect } from "react";
 import { Heading, Container, Box } from "@chakra-ui/react";
 import Markdown from "markdown-to-jsx";
-import CodingChallengeDataService from './../services/codingChallenges';
+import CodingChallengeDataService from "./../services/codingChallenges";
 
-import { Oval } from 'react-loading-icons'
+import { Oval } from "react-loading-icons";
 
 export const Challenge = (props) => {
-  const [challengeDescription, setChallengeDescription] = useState('')
+  const [challengeDescription, setChallengeDescription] = useState("");
   const [challenge, setChallenge] = useState({
     id: null,
-    title: '',
-    challenge_type: '',
-    url: ''
+    title: "",
+    challenge_type: "",
+    url: "",
   });
 
   const getChallenge = (id) => {
     CodingChallengeDataService.get(id)
-      .then(response => {
-        setChallenge(response.data)
+      .then((response) => {
+        setChallenge(response.data);
       })
-      .catch (e => {
+      .catch((e) => {
         console.error(`Error fetching challenge ${e}`);
       });
   };
 
-  const getMarkdown = (url) => {
-    CodingChallengeDataService.markdown(url)
-      .then(response => {
-        setChallengeDescription(response.data)
+  const getMarkdown = (filename) => {
+    import(`'./../../src/markdown/${filename}.md`)
+      .then((res) => {
+        fetch(res.default)
+          .then((res) => res.text())
+          .then((res) => setChallengeDescription(res));
       })
+      .catch((err) => console.error("Error fetching Markdown:", err));
   };
 
   useEffect(() => {
     getChallenge(props.match.params.id);
-    getMarkdown(challenge.url);
-  }, [props.match.params.id, challenge.url]);
+    getMarkdown(challenge.md_filename);
+  }, [props.match.params.id, challenge.md_filename]);
 
   if (!challenge || !challengeDescription) {
     return (
-      <Box display="flex" minH="100vh" alignItems="center" justifyContent="center">
+      <Box
+        display="flex"
+        minH="100vh"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Oval stroke="#000" />
       </Box>
-    )
-  } 
+    );
+  }
 
   return (
-    <Container maxW={{ sm: '90%', md: '75%', lg: '50%' }}>
-      <Heading as="h4"  py={8}>{challenge.title}</Heading>
+    <Container maxW={{ sm: "90%", md: "75%", lg: "50%" }}>
+      <Heading as="h4" py={8}>
+        {challenge.title}
+      </Heading>
       <Markdown>{challengeDescription}</Markdown>
     </Container>
   );
