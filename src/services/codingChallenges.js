@@ -14,10 +14,6 @@ class CodingChallengeDataService {
   find(query, by = 'title', page = 0) {
     return axios.get(`${url}/api/v1/coding_challenges?${by}=${query}&page=${page}`);
   }
-
-  markdown(url) {
-    return axios.get(url);
-  }
 }
 
 export default new CodingChallengeDataService();
