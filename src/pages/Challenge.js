@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Heading, Container, Box } from "@chakra-ui/react";
-import Markdown from "markdown-to-jsx";
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import CodingChallengeDataService from "./../services/codingChallenges";
 
 import { Oval } from "react-loading-icons";
@@ -57,7 +58,12 @@ export const Challenge = (props) => {
       <Heading as="h4" py={8}>
         {challenge.title}
       </Heading>
-      <Markdown>{challengeDescription}</Markdown>
+      <ReactMarkdown
+        components={ChakraUIRenderer()}
+        children={challengeDescription}
+        skipHtml
+      />
+      ;
     </Container>
   );
 };
