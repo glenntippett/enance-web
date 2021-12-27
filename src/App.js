@@ -7,6 +7,7 @@ import { Challenge } from "./pages/Challenge";
 import { Blog } from "./pages/Blog";
 import { Profile } from "./pages/Profile";
 import { ProtectedRoute } from "./services/Authentication";
+import { Footer } from './components/Footer/Footer';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
           <ProtectedRoute path="/blog/" exact component={Blog}/>
           <ProtectedRoute path="/profile" exact component={Profile}/>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

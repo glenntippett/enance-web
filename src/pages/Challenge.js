@@ -63,7 +63,6 @@ export const Challenge = (props) => {
         children={challengeDescription}
         skipHtml
       />
-      ;
     </Container>
   );
 };

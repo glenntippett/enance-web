@@ -14,7 +14,9 @@ import {
   IconButton,
   InputRightElement,
   InputGroup,
+  Box,
 } from "@chakra-ui/react";
+import { Oval } from "react-loading-icons";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
@@ -59,12 +61,6 @@ export const Challenges = () => {
     document.querySelector(".searchInput").value = "";
   };
 
-  if (!challenges || !challengeTypes) {
-    return (
-      "Loading..."
-    );
-  }
-
   return (
     <Container maxW="container.xl">
       <Heading as="h4" py={8}>
@@ -85,6 +81,17 @@ export const Challenges = () => {
         code, implementing a new feature or reading and displaying data from an
         API - all within an existing codebase.
       </Text>
+
+      {challenges.length < 1 && (
+        <Box
+          display="flex"
+          minH="50vh"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Oval stroke="#000" />
+        </Box>
+      )}
 
       <Tabs variant="enclosed" mt="2rem">
         <TabList>
