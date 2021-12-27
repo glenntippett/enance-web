@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Heading, Container, Box } from "@chakra-ui/react";
+import { Container, Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import CodingChallengeDataService from "./../services/codingChallenges";
