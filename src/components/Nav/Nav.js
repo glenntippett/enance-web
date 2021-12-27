@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Links = ["About", "Challenges", "Blog"];
+const Links = ["About", "Challenges", "Blog", "Contact"];
 
 const NavLink = ({ children }) => (
 
