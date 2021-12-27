@@ -9,6 +9,7 @@ import { Profile } from "./pages/Profile";
 import { ProtectedRoute } from "./services/Authentication";
 import { Footer } from './components/Footer/Footer';
 import { Contact } from "./components/Contact/Contact";
+import { About } from "./pages/About";
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
         <Nav />
         <Switch>
           <Route path="/" exact component={Homepage} />
+          <Route path="/about" exact component={About} />
           <ProtectedRoute path="/challenges" exact component={Challenges} />
           <ProtectedRoute path="/challenges/:id" component={Challenge}/>
           <ProtectedRoute path="/blog/" exact component={Blog}/>
