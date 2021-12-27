@@ -4,7 +4,7 @@
 ## The Goal 
 
 The purpose of this challenge is to implement a feature into an existing codebase.  
-In this case the feature is displaying user data in a card format as shown *[here](https://reverent-euler-fd445c.netlify.app/)*.  
+In this case the feature is displaying user data in a card format as shown **[here](https://reverent-euler-fd445c.netlify.app/)**.  
 The existing codebase here is small as the main goal is to focus on fetching and using the data from the API.  
 
 We want to see a card for each user displaying their name, age, location and username.  
