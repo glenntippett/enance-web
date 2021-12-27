@@ -6,7 +6,7 @@ import {
   Stack,
   Flex,
 } from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import { FcFolder, FcReading, FcApproval } from "react-icons/fc";
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -34,24 +34,24 @@ export function FeatureTwo() {
     <Container p={4} my={4} maxW="container.xl">
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={"Lifetime Support"}
+          icon={<Icon as={FcFolder} w={10} h={10} />}
+          title={"Real Challenges"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "Solve challenges based on real technical interviews, know what is expected for your next take home challenge"
           }
         />
         <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={"Unlimited Donations"}
+          icon={<Icon as={FcReading} w={10} h={10} />}
+          title={"Learn from Others"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "Read other people's interview and job hunting stories, find out what is involved in the interview process"
           }
         />
         <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={"Instant Delivery"}
+          icon={<Icon as={FcApproval} w={10} h={10} />}
+          title={"Portfolio Ideas"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "Improve your portfolio by reading our blog posts, get ideas to show off at your next interview"
           }
         />
       </SimpleGrid>

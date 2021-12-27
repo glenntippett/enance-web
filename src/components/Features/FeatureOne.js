@@ -49,9 +49,9 @@ export function FeatureOne() {
             alignSelf={"flex-start"}
             rounded={"md"}
           >
-            Our Story
+            Our Goal
           </Text>
-          <Heading>A digital coach for job hunting</Heading>
+          <Heading>An online coach for job hunting</Heading>
           <Text color={"gray.500"} fontSize={"lg"}>
             We aim to give you the tools you need to be successful in finding a
             job, as well as getting started in your new role
@@ -76,7 +76,7 @@ export function FeatureOne() {
                 <Icon as={IoCodeSlashSharp} color={"green.500"} w={5} h={5} />
               }
               iconBg={useColorModeValue("green.100", "green.900")}
-              text={"Portfolio Planning"}
+              text={"Portfolio Ideas"}
             />
             <Feature
               icon={
