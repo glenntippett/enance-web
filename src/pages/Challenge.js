@@ -55,9 +55,6 @@ export const Challenge = (props) => {
 
   return (
     <Container maxW={{ sm: "90%", md: "75%", lg: "50%" }}>
-      <Heading as="h4" py={8}>
-        {challenge.title}
-      </Heading>
       <ReactMarkdown
         components={ChakraUIRenderer()}
         children={challengeDescription}
