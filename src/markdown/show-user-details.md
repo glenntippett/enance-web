@@ -15,7 +15,7 @@ There should also be a button at the bottom of each card that when clicked displ
 
 Clone the repository:  
 
-```git clone git@github.com:glenntippett/show-user-details-challenge.git ```  
+```git clone https://github.com/enance-dev/show-user-details.git ```  
 
 Install dependencies:  
 
@@ -26,7 +26,7 @@ Run the app:
 ```npm run start```  
 
 You should see the basic page at:  
-[localhost:3000](http://localhost:3000/)  
+**[localhost:3000](http://localhost:3000/)**  
 
 
 ## Dependencies  
