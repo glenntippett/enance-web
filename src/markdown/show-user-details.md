@@ -37,7 +37,7 @@ In a new job you will need to become familiar with the packages and tools that t
 For this challenge you must use the [React Bootstrap](https://react-bootstrap.github.io/) and regular [Bootstrap](https://getbootstrap.com/) libraries.  
 
 ### The API
-You will be calling the user data from the [Random User Generator API](https://randomuser.me/documentation).  
+You will be calling the user data from the **[Random User Generator API](https://randomuser.me/documentation)**.  
 Let's keep our API call separate from the component logic.  
 Make your call to the API within ```src/services/retrieveUserInfo.js```  
 This should then be called from ```src/components/UserInfo.js```  
