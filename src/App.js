@@ -10,6 +10,7 @@ import { ProtectedRoute } from "./services/Authentication";
 import { Footer } from './components/Footer/Footer';
 import { Contact } from "./components/Contact/Contact";
 import { About } from "./pages/About";
+import { notFound } from './pages/404';
 
 export const App = () => {
   return (
@@ -24,6 +25,7 @@ export const App = () => {
           <ProtectedRoute path="/blog/" exact component={Blog}/>
           <ProtectedRoute path="/profile" exact component={Profile}/>
           <Route path="/contact" exact component={Contact}/>
+          <Route path="*" component={notFound} />
         </Switch>
         <Footer />
       </div>
