@@ -14,7 +14,7 @@ import {
   useColorModeValue,
   Stack,
   Heading,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
@@ -24,7 +24,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Links = ["About", "Challenges", "Blog", "Contact"];
 
 const NavLink = ({ children }) => (
-
   <Link
     px={2}
     py={1}
@@ -46,7 +45,7 @@ export default function Simple() {
 
   return (
     <>
-      <Box px={4}>
+      <Box px={4} borderBottom="1px" borderColor="gray.200">
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -84,9 +83,13 @@ export default function Simple() {
                   <Avatar src={user.picture} size="sm" name={user.name} />
                 </MenuButton>
                 <MenuList>
-                  <MenuItem><Link to="/profile">Profile</Link></MenuItem>
+                  <MenuItem>
+                    <Link to="/profile">Profile</Link>
+                  </MenuItem>
                   <MenuDivider />
-                  <MenuItem><LogoutButton /></MenuItem>
+                  <MenuItem>
+                    <LogoutButton />
+                  </MenuItem>
                 </MenuList>
               </Menu>
             )}
