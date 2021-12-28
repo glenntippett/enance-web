@@ -10,26 +10,12 @@ import {
   Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export function HeroTwo() {
   return (
-    <Box
-      backgroundColor="#FFFBDF"
-      style={{
-        position: "relative",
-        zIndex: -5,
-      }}
-    >
-      <Container
-        maxW={"7xl"}
-        _after={{
-          content: "''",
-          position: "absolute",
-          bottom: 1,
-          left: 0,
-          zIndex: -2,
-        }}
-      >
+    <Box backgroundColor="#FFFBDF">
+      <Container maxW={"7xl"}>
         <Stack
           align={"center"}
           spacing={{ base: 8, md: 10 }}
@@ -44,6 +30,7 @@ export function HeroTwo() {
             >
               <Text
                 as={"span"}
+                style={{ position: "relative", zIndex: 1 }}
                 position={"relative"}
                 _after={{
                   content: "''",
@@ -73,20 +60,30 @@ export function HeroTwo() {
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: "column", sm: "row" }}
             >
-              <Button
-                rounded={"full"}
-                size={"lg"}
-                fontWeight={"normal"}
-                px={6}
-                colorScheme={"red"}
-                bg={"pink.500"}
-                _hover={{ bg: "red.500" }}
-              >
-                Get started
-              </Button>
-              <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}>
-                About
-              </Button>
+              <Link to="/challenges">
+                <Button
+                  rounded={"full"}
+                  size={"lg"}
+                  fontWeight={"normal"}
+                  px={6}
+                  colorScheme={"pink"}
+                  bg={"pink.500"}
+                  _hover={{ bg: "pink.400" }}
+                >
+                  Get started
+                </Button>
+              </Link>
+
+              <Link to="/about">
+                <Button
+                  rounded={"full"}
+                  size={"lg"}
+                  fontWeight={"normal"}
+                  px={6}
+                >
+                  About
+                </Button>
+              </Link>
             </Stack>
           </Stack>
           <Flex
@@ -95,6 +92,7 @@ export function HeroTwo() {
             align={"center"}
             position={"relative"}
             w={"full"}
+            style={{ position: "relative", zIndex: 1 }}
           >
             <Blob
               w={"150%"}
