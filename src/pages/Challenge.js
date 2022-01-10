@@ -26,7 +26,7 @@ export const Challenge = (props) => {
   };
 
   const getMarkdown = (filename) => {
-    import(`'./../../src/markdown/${filename}.md`)
+    import(`'./../../src/markdown/challenges/${filename}.md`)
       .then((res) => {
         fetch(res.default)
           .then((res) => res.text())
@@ -54,7 +54,7 @@ export const Challenge = (props) => {
   }
 
   return (
-    <Container maxW={{ sm: "90%", md: "75%", lg: "50%" }}>
+    <Container maxW={{ sm: "90%", md: "75%", lg: "50%" }} mb={8}>
       <ReactMarkdown
         components={ChakraUIRenderer()}
         children={challengeDescription}

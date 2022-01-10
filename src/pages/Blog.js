@@ -8,13 +8,6 @@ export const Blog = () => {
       <Wrap justify="center">
         <BlogCard />
         <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
       </Wrap>
     </Container>
   );
