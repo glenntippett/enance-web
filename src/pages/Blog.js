@@ -16,7 +16,7 @@ export const Blog = () => {
     });
   };
 
-  if (!blogs) {
+  if (blogs.length < 1) {
     return <LoadingSpinner />;
   }
 
