@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container, Box } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import CodingChallengeDataService from "./../services/codingChallenges";
 import { LoadingSpinner } from "../components/Loading/Loading";
-
-import { Oval } from "react-loading-icons";
 
 export const Challenge = (props) => {
   const [challengeDescription, setChallengeDescription] = useState("");
