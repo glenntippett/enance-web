@@ -39,7 +39,7 @@ export function HeroTwo() {
                   position: "absolute",
                   bottom: 1,
                   left: 0,
-                  bg: "pink.500",
+                  bg: "pink.200",
                   zIndex: -1,
                 }}
               >
@@ -62,7 +62,7 @@ export function HeroTwo() {
             >
               <Link to="/challenges">
                 <Button
-                  rounded={"full"}
+                  rounded={"md"}
                   size={"lg"}
                   fontWeight={"normal"}
                   px={6}
@@ -76,7 +76,7 @@ export function HeroTwo() {
 
               <Link to="/about">
                 <Button
-                  rounded={"full"}
+                  rounded={"md"}
                   size={"lg"}
                   fontWeight={"normal"}
                   px={6}
