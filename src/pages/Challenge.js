@@ -3,6 +3,7 @@ import { Container, Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import CodingChallengeDataService from "./../services/codingChallenges";
+import { LoadingSpinner } from "../components/Loading/Loading";
 
 import { Oval } from "react-loading-icons";
 
@@ -41,16 +42,7 @@ export const Challenge = (props) => {
   }, [props.match.params.id, challenge.md_filename]);
 
   if (!challenge || !challengeDescription) {
-    return (
-      <Box
-        display="flex"
-        minH="100vh"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Oval stroke="#000" />
-      </Box>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
