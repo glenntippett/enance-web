@@ -13,6 +13,7 @@ export const BlogCard = ({ title, avatar, abstract, id }) => {
     <Link to={`/blog/${id}`} style={{ textDecoration: "none" }}>
       <Box
         maxW={"445px"}
+        minH={"165px"}
         w={"full"}
         boxShadow={"lg"}
         rounded={"md"}
