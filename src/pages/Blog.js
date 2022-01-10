@@ -22,7 +22,7 @@ export const Blog = () => {
 
   return (
     <Container maxW="container.xl" minH="70vh" p={4}>
-      <Wrap justify="center">
+      <Wrap justify="center" mt={4}>
         {blogs.map((blog) => (
           <BlogCard
             title={blog.title}
