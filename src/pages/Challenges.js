@@ -14,12 +14,11 @@ import {
   IconButton,
   InputRightElement,
   InputGroup,
-  Box,
 } from "@chakra-ui/react";
-import { Oval } from "react-loading-icons";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
+import { LoadingSpinner } from "../components/Loading/Loading";
 
 import CodingChallengeDataService from "./../services/codingChallenges";
 
@@ -82,16 +81,7 @@ export const Challenges = () => {
         API - all within an existing codebase.
       </Text>
 
-      {challenges.length < 1 && (
-        <Box
-          display="flex"
-          minH="50vh"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Oval stroke="#000" />
-        </Box>
-      )}
+      {challenges.length < 1 && <LoadingSpinner />}
 
       <Tabs variant="enclosed" mt="2rem">
         <TabList>
