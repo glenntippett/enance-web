@@ -23,9 +23,9 @@ export function Footer() {
           <Stack align={"flex-start"}>
             <Link to="/challenges">Challenges</Link>
           </Stack>
-          <Stack align={"flex-start"}>
+          {/* <Stack align={"flex-start"}>
             <Link to="/blog">Blog</Link>
-          </Stack>
+          </Stack> */}
           <Stack align={"flex-start"}>
             <Link to="/contact">Contact</Link>
           </Stack>
