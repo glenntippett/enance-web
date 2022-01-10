@@ -9,14 +9,6 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const ListHeader = ({ children }) => {
-  return (
-    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
-      {children}
-    </Text>
-  );
-};
-
 export function Footer() {
   return (
     <Box
