@@ -21,13 +21,14 @@ export const Blog = () => {
   }
 
   return (
-    <Container maxW="container.xl" p={4}>
+    <Container maxW="container.xl" minH="70vh" p={4}>
       <Wrap justify="center">
         {blogs.map((blog) => (
           <BlogCard
             title={blog.title}
             avatar={blog.avatar}
             abstract={blog.abstract}
+            id={blog._id}
           />
         ))}
       </Wrap>

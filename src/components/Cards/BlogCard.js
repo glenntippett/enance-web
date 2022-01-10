@@ -8,9 +8,9 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export const BlogCard = ({ title, avatar, abstract }) => {
+export const BlogCard = ({ title, avatar, abstract, id }) => {
   return (
-    <Link to="*" style={{ textDecoration: "none" }}>
+    <Link to={`/blog/${id}`} style={{ textDecoration: "none" }}>
       <Box
         maxW={"445px"}
         w={"full"}
