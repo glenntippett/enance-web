@@ -1,4 +1,3 @@
-// import "./App.css";
 import Nav from "./components/Nav/Nav";
 import { Challenges } from "./pages/Challenges";
 import { Homepage } from "./pages/Homepage";
