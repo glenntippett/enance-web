@@ -20,36 +20,20 @@ import { ChallengeCard } from "./../components/ChallengeCard/ChallengeCard";
 import "react-tabs/style/react-tabs.css";
 import { LoadingSpinner } from "../components/Loading/Loading";
 
-import CodingChallengeDataService from "./../services/codingChallenges";
-
-export const Challenges = () => {
+export const Challenges = ({ allChallenges, challengeTypes }) => {
   const [challenges, setChallenges] = useState([]);
-  const [challengeTypes, setChallengeTypes] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (!search) {
-      retrieveCodingChallenges();
+      setChallenges(allChallenges);
     }
-  }, [search]);
-
-  const retrieveCodingChallenges = () => {
-    CodingChallengeDataService.getAll().then((response) => {
-      setChallenges(response.data.coding_challenges);
-      setChallengeTypes([
-        ...new Set(
-          response.data.coding_challenges.map(
-            (challenge) => challenge.challenge_type
-          )
-        ),
-      ]);
-    });
-  };
+  }, [allChallenges, search]);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
     setChallenges(
-      challenges.filter((challenge) =>
+      allChallenges.filter((challenge) =>
         challenge.title.toLowerCase().includes(search.toLowerCase())
       )
     );
@@ -81,8 +65,6 @@ export const Challenges = () => {
         API - all within an existing codebase.
       </Text>
 
-      {challenges.length < 1 && <LoadingSpinner />}
-
       <Tabs variant="enclosed" mt="2rem">
         <TabList>
           {challengeTypes.map((type) => (
@@ -111,6 +93,8 @@ export const Challenges = () => {
             />
           </InputGroup>
         </FormControl>
+
+        {challenges.length < 1 && <LoadingSpinner />}
 
         <TabPanels>
           {challengeTypes.map((type) => (
