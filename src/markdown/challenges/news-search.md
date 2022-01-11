@@ -1,33 +1,23 @@
-# Guardian news search.
+# News Search
 
-## To start
-* (In a terminal window) Install dependencies with `npm install`
-* Rename `.env.dist` to `.env` and add your guardian api key
-* (In a terminal window) Run `npm start` to start server.
+## The Goal
+Write a frontend application that queries the **[Guardian News API](https://open-platform.theguardian.com/documentation/)**.  
+The application should include a search input for users to search key words, returning the relevant articles.  
 
-## Firstly
-You should then be able to browse to `http://localhost:3000` and see our beautiful application screen. You should be able to type some words into the box, hit search, and get a set of results back.
+Whilst the main goal is the get the functionality working, we are focusing on design as well.  
+In this challenge the UI choices are up to you, though at a minimum the articles should appear in a responsive grid of cards.  
 
-Except - it's not *quite* doing the right thing. No matter what you type, it's giving us the same result back.
+### Prep:
+* The language you write this in is up to you.  
+* Being a frontend challenge there should be no need for a fullstack application such as Ruby on Rails though this is still acceptable.  
+* You will need to sign up for an API key from the Guardian API website (link above)
+### Some tasks:
+* Keep the functionality separated in components, everything should not be in one file
+* Clicking on an article card should redirect the user to the relevant story on the Guardian news website
+* There should be a navbar at the top of the page
+* The search input should be in the navbar
 
-If you look in the `doSearch` function in `pages/index.jsx` it seems like we are passing the search term to `api/search`, but it's not being passed through. Looking at the documentation for [NextJS api routes](https://nextjs.org/docs/api-routes/api-middlewares) and the [Guardian content API](https://open-platform.theguardian.com/documentation/search), make sure the user is being returned relevant results.
-
-
-## Some bonus tasks
-There is no expectation to get through all, or even most of these, but if you feel like you have some extra time after you get the search working, you can start looking at a few of them, in any order.
-
-* All of the app is in one component in index.jsx, which is a bit weird. It would be good to start refactoring the app into separate components for reusability/maintainability. Make a top level components folder and start extracting individual components into there.
-* We don't like that you can submit an empty search field. Please make it so that it won't search until you've typed something in.
-* Oh and also, we should probably stop people hitting submit again until the last result has been displayed. Even better if it can show a 'loading...' message or [spinner](https://loading.io/) while it loads.
-* Add some styling. The design team would like to see the results be a grid of cards rather than just a text list. Would be good to tidy up the styling generally as well, make it look nice.
-* The API won't return an image we can use for the article - any ideas how we could get around this or what we could do instead?
-* Can you include the publication date in the result listing? In brackets after the link title, like
- **This Very Interesting Story (20 January 2021)**
-* Add a checkbox to the form that lets a user specify that they only want *recent* results. If this box is checked it should only return articles that have been published in *the last 3 months*
-* Reformat the result listing so that articles in the same *section* are grouped together. It should show the section name then the list of articles in that section, eg:
-  * News
-    * article 1
-    * article 2
-  * Politics
-    * article 3
-    * article 4
+### Additional: 
+On the Guardian news website, there is a popup on the bottom of the screen asking for donations - can you implement a similar popup in your application?  
+This should just be a popup that appears when the user loads the page for the first time.  
+Once the user has closed the popup, it should not appear again. 
