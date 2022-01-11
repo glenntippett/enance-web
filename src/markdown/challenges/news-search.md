@@ -4,7 +4,7 @@
 Write a frontend application that queries the **[Guardian News API](https://open-platform.theguardian.com/documentation/)**.  
 The application should include a search input for users to search key words, returning the relevant articles.  
 
-Whilst the main goal is the get the functionality working, we are focusing on design as well.  
+Whilst the main goal is to get the functionality working, we are focusing on design as well.  
 In this challenge the UI choices are up to you, though at a minimum the articles should appear in a responsive grid of cards.  
 
 ### Prep:
