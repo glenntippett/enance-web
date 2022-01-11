@@ -13,14 +13,23 @@ import { Contact } from "./components/Contact/Contact";
 import { About } from "./pages/About";
 import { notFound } from "./pages/404";
 import CodingChallengeDataService from "./services/codingChallenges";
+import BlogDataService from "./services/blogs";
 
 export const App = () => {
   const [challenges, setChallenges] = useState([]);
   const [challengeTypes, setChallengeTypes] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     retrieveCodingChallenges();
+    retrieveBlogs();
   }, []);
+
+  const retrieveBlogs = () => {
+    BlogDataService.getAll().then((response) => {
+      setBlogs(response.data.blogs);
+    });
+  };
 
   const retrieveCodingChallenges = () => {
     CodingChallengeDataService.getAll().then((response) => {
@@ -49,7 +58,9 @@ export const App = () => {
             />
           </ProtectedRoute>
           <ProtectedRoute path="/challenges/:id" component={Challenge} />
-          <ProtectedRoute path="/blog/" exact component={Blog} />
+          <ProtectedRoute path="/blog/" exact>
+            <Blog blogs={blogs} />
+          </ProtectedRoute>
           <ProtectedRoute path="/blog/:id" exact component={Post} />
           <ProtectedRoute path="/profile" exact component={Profile} />
           <Route path="/contact" exact component={Contact} />
