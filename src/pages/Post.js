@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import BlogDataService from "./../services/blogs";
 import { LoadingSpinner } from "../components/Loading/Loading";
+import { BackToBlog } from "../components/Button/BackToBlog";
 
 export const Post = (props) => {
   const [blogDescription, setBlogDescription] = useState("");
@@ -45,13 +46,15 @@ export const Post = (props) => {
 
   return (
     <Container maxW={{ sm: "90%", md: "75%", lg: "50%" }} mb={8}>
-      <Text mt={4} color='gray.600'>Author: {blog.author}</Text>
+      <BackToBlog />
+      <Text color="gray.600">Author: {blog.author}</Text>
       <ReactMarkdown
         components={ChakraUIRenderer()}
         children={blogDescription}
         skipHtml
       />
       <Avatar size="xl" mr={2} src={blog.avatar} />
+      <BackToBlog />
     </Container>
   );
 };
