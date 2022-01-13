@@ -11,33 +11,31 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
-  useColorModeValue,
   Stack,
   Heading,
   Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import "./Nav.css";
 const Links = ["About", "Challenges", "Blog", "Contact"];
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-    to={`/${children}`}
-  >
-    {children}
-  </Link>
-);
+const NavigationLinks = ({ children }) => {
+  return (
+    <NavLink
+      px={2}
+      py={1}
+      rounded={"md"}
+      activeClassName="selected"
+      className="nav-link"
+      to={`/${children}`}
+    >
+      {children}
+    </NavLink>
+  );
+};
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -64,7 +62,7 @@ export default function Simple() {
               display={{ base: "none", md: "flex" }}
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavigationLinks key={link}>{link}</NavigationLinks>
               ))}
             </HStack>
           </HStack>
@@ -100,7 +98,7 @@ export default function Simple() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavigationLinks key={link}>{link}</NavigationLinks>
               ))}
             </Stack>
           </Box>
