@@ -9,3 +9,13 @@
 .selected {
   background: #E2E8F0;
 }
+
+.feedback {
+  background: #C05621;
+  color: white;
+  font-weight: bold;
+}
+
+.feedback:hover {
+  background: #c47659;
+}
