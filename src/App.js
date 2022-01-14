@@ -7,7 +7,6 @@ import { Challenge } from "./pages/Challenge";
 import { Blog } from "./pages/Blog";
 import { Post } from "./pages/Post";
 import { Profile } from "./pages/Profile";
-import { ProtectedRoute } from "./services/Authentication";
 import { Footer } from "./components/Footer/Footer";
 import { About } from "./pages/About";
 import { notFound } from "./pages/404";
