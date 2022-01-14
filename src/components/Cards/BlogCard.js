@@ -1,5 +1,4 @@
 import {
-  Box,
   Heading,
   Text,
   Stack,
@@ -11,12 +10,15 @@ import { Link } from "react-router-dom";
 export const BlogCard = ({ title, avatar, abstract, id }) => {
   return (
     <Link to={`/blog/${id}`} style={{ textDecoration: "none" }}>
-      <Box
+      <Stack
+        justify="center"
         maxW={"445px"}
         minH={"165px"}
         w={"full"}
-        boxShadow={"lg"}
+        boxShadow={"sm"}
         rounded={"md"}
+        border="1px"
+        borderColor="gray.200"
         p={6}
         overflow={"hidden"}
         style={{ transition: "transform 0.2s" }}
@@ -38,7 +40,7 @@ export const BlogCard = ({ title, avatar, abstract, id }) => {
             </Text>
           </Stack>
         </Stack>
-      </Box>
+      </Stack>
     </Link>
   );
 };
