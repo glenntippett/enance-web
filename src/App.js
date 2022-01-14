@@ -9,11 +9,11 @@ import { Post } from "./pages/Post";
 import { Profile } from "./pages/Profile";
 import { ProtectedRoute } from "./services/Authentication";
 import { Footer } from "./components/Footer/Footer";
-import { Contact } from "./components/Contact/Contact";
 import { About } from "./pages/About";
 import { notFound } from "./pages/404";
 import CodingChallengeDataService from "./services/codingChallenges";
 import BlogDataService from "./services/blogs";
+import { Contact } from "./pages/Contact";
 
 export const App = () => {
   const [challenges, setChallenges] = useState([]);
