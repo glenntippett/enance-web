@@ -13,6 +13,7 @@ export const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [formSubmitting, setFormSubmitting] = useState(false);
   const toast = useToast();
 
   const clearForm = () => {
@@ -56,6 +57,7 @@ export const ContactForm = () => {
     }
 
     // Send message
+    setFormSubmitting(true);
     ContactFormDataService.sendForm(data)
       .then((res) => {
         if (res.status === 200) {
@@ -68,12 +70,15 @@ export const ContactForm = () => {
             isClosable: true,
             position: "top",
           });
+          setFormSubmitting(false);
         } else {
           console.error("Error sending message");
+          setFormSubmitting(false);
         }
       })
       .catch((err) => {
         console.error("Problem sending message: ", err);
+        setFormSubmitting(false);
       });
   };
 
@@ -116,7 +121,12 @@ export const ContactForm = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </FormControl>
-        <Button type="submit" onClick={handleSubmit} colorScheme="teal">
+        <Button
+          type="submit"
+          onClick={handleSubmit}
+          colorScheme="teal"
+          isLoading={formSubmitting}
+        >
           Submit
         </Button>
         <Button
