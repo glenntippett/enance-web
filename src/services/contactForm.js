@@ -1,4 +1,4 @@
-const url = "http://localhost:5002/api/v1/contact";
+const url = 'https://mysterious-dusk-66432.herokuapp.com'
 
 class ContactFormDataService {
   sendForm(data) {
