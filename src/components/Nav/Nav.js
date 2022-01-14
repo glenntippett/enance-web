@@ -64,6 +64,18 @@ export default function Simple() {
               {Links.map((link) => (
                 <NavigationLinks key={link}>{link}</NavigationLinks>
               ))}
+              <NavLink
+                px={2}
+                py={1}
+                rounded={"md"}
+                activeClassName="selected"
+                className="nav-link feedback"
+                to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Feedback
+              </NavLink>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
