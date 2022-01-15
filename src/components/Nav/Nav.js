@@ -14,8 +14,9 @@ import {
   Stack,
   Heading,
   Text,
+  Icon,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -75,6 +76,7 @@ export default function Simple() {
                 rel="noopener noreferrer"
               >
                 Feedback
+                <Icon as={ExternalLinkIcon} />
               </NavLink>
             </HStack>
           </HStack>
@@ -123,6 +125,7 @@ export default function Simple() {
                 rel="noopener noreferrer"
               >
                 Feedback
+                <Icon as={ExternalLinkIcon} />
               </NavLink>
             </Stack>
           </Box>
