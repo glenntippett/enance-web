@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'https://mysterious-dusk-66432.herokuapp.com'
+const url = 'https://mysterious-dusk-66432.herokuapp.com';
 
 class BlogDataService {
   getAll(page = 0) {
