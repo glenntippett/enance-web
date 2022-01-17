@@ -4,7 +4,7 @@
 
 Using a language of your choosing write a shopping cart application that can calculate the cost of items in the shopping cart.  
 You should write tests to satisfy the below conditions:  
-* Create a ShoopingCart and add 2 "Books" for $9.95 each and 1 "Board Game" for $19.95, the ShoppingCart total price should equal $39.85  
+* Create a ShoppingCart and add 2 "Books" for $9.95 each and 1 "Board Game" for $19.95, the ShoppingCart total price should equal $39.85  
 * Create a ShoppingCart and add 3 "Books", then remove 1 "Book", and check that total price is correct: $29.85 - $9.95 = $19.90
 
 ## Notes
