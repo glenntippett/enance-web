@@ -66,22 +66,11 @@ export function HeroTwo() {
                   size={"lg"}
                   fontWeight={"normal"}
                   px={6}
-                  colorScheme={"pink"}
-                  bg={"pink.500"}
-                  _hover={{ bg: "pink.400" }}
+                  colorScheme="teal"
+                  bg={"teal"}
+                  _hover={{ bg: "teal.400" }}
                 >
-                  Get started
-                </Button>
-              </Link>
-
-              <Link to="/about">
-                <Button
-                  rounded={"md"}
-                  size={"lg"}
-                  fontWeight={"normal"}
-                  px={6}
-                >
-                  About
+                  View Challenges
                 </Button>
               </Link>
             </Stack>
