@@ -20,8 +20,10 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
+  Icon
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { FcHome } from "react-icons/fc";
 import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -110,7 +112,15 @@ export default function Simple() {
           <DrawerContent>
             <DrawerHeader borderBottomWidth="1px">
               <HStack justify="space-between">
-                <Text>Enance</Text>
+                <Link to="/">
+                  {" "}
+                  <Icon
+                    as={FcHome}
+                    w={6}
+                    h={6}
+                    ml={2}
+                  />
+                </Link>
                 <Button colorScheme={"red"} onClick={onClose} size="sm">
                   <CloseIcon />
                 </Button>
