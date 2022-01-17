@@ -14,7 +14,6 @@ import {
   Stack,
   Heading,
   Text,
-  Icon,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -22,7 +21,7 @@ import {
   DrawerOverlay,
   DrawerContent,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -71,19 +70,6 @@ export default function Simple() {
               {Links.map((link) => (
                 <NavigationLinks key={link}>{link}</NavigationLinks>
               ))}
-              <NavLink
-                px={2}
-                py={1}
-                rounded={"md"}
-                activeClassName="selected"
-                className="nav-link feedback"
-                to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Feedback
-                <Icon as={ExternalLinkIcon} />
-              </NavLink>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
@@ -137,19 +123,6 @@ export default function Simple() {
                     {link}
                   </NavigationLinks>
                 ))}
-                <NavLink
-                  px={2}
-                  py={1}
-                  rounded={"md"}
-                  activeClassName="selected"
-                  className="nav-link feedback"
-                  to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Feedback
-                  <Icon as={ExternalLinkIcon} />
-                </NavLink>
               </Stack>
             </DrawerBody>
             <DrawerFooter></DrawerFooter>

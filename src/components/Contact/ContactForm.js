@@ -7,7 +7,12 @@ import {
   Button,
   Input,
   useToast,
+  Icon,
+  Heading,
+  Text,
 } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { NavLink } from "react-router-dom";
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
@@ -84,6 +89,7 @@ export const ContactForm = () => {
 
   return (
     <div>
+      <Heading mb={8}>Contact</Heading>
       <form>
         <FormControl isRequired>
           <FormLabel htmlFor="name">Name</FormLabel>
@@ -137,6 +143,26 @@ export const ContactForm = () => {
         >
           Reset
         </Button>
+        <Heading mt={6} mb={2} size="lg">
+          Feedback Form
+        </Heading>
+        <Text maxW={{ sm: "90%", md: "75%", lg: "50%" }} mb={4}>
+          Below is a link to our feedback form - it's greatly appreciated if you
+          can fill this out as it helps us improve the website
+        </Text>
+        <NavLink
+          px={2}
+          py={1}
+          rounded={"md"}
+          activeClassName="selected"
+          className="nav-link feedback"
+          to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Feedback
+          <Icon as={ExternalLinkIcon} />
+        </NavLink>
       </form>
     </div>
   );
