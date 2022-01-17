@@ -14,9 +14,16 @@ import {
   Stack,
   Heading,
   Text,
-  Icon,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  Icon
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { FcHome } from "react-icons/fc";
 import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -48,7 +55,7 @@ export default function Simple() {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            icon={<HamburgerIcon />}
             aria-label={"Open Menu"}
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
@@ -65,19 +72,6 @@ export default function Simple() {
               {Links.map((link) => (
                 <NavigationLinks key={link}>{link}</NavigationLinks>
               ))}
-              <NavLink
-                px={2}
-                py={1}
-                rounded={"md"}
-                activeClassName="selected"
-                className="nav-link feedback"
-                to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Feedback
-                <Icon as={ExternalLinkIcon} />
-              </NavLink>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
@@ -108,28 +102,42 @@ export default function Simple() {
           </Flex>
         </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <NavigationLinks key={link}>{link}</NavigationLinks>
-              ))}
-              <NavLink
-                px={2}
-                py={1}
-                rounded={"md"}
-                activeClassName="selected"
-                className="nav-link feedback"
-                to="//mp49b7beolp.typeform.com/to/pPgUJAFQ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Feedback
-                <Icon as={ExternalLinkIcon} />
-              </NavLink>
-            </Stack>
-          </Box>
-        ) : null}
+        <Drawer
+          placement={"bottom"}
+          onClose={onClose}
+          isOpen={isOpen}
+          size={"xs"}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerHeader borderBottomWidth="1px">
+              <HStack justify="space-between">
+                <Link to="/">
+                  {" "}
+                  <Icon
+                    as={FcHome}
+                    w={6}
+                    h={6}
+                    ml={2}
+                  />
+                </Link>
+                <Button colorScheme={"red"} onClick={onClose} size="sm">
+                  <CloseIcon />
+                </Button>
+              </HStack>
+            </DrawerHeader>
+            <DrawerBody>
+              <Stack as={"nav"} spacing={4}>
+                {Links.map((link) => (
+                  <NavigationLinks key={link} onClick={onClose}>
+                    {link}
+                  </NavigationLinks>
+                ))}
+              </Stack>
+            </DrawerBody>
+            <DrawerFooter></DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       </Box>
     </>
   );
