@@ -3,6 +3,7 @@
   transition: 0.2s;
   border-radius: 4px;
   text-decoration: none;
+  max-width: fit-content; /* Stops active/hover state bg colour covering full width on mobile */
 }
 
 .nav-link:hover,
@@ -16,7 +17,6 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  max-width: fit-content;
 }
 
 .feedback > svg {
