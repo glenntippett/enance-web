@@ -64,20 +64,21 @@ export const About = () => {
         About me
       </Heading>
       <hr />
-      <Flex>
+      <Flex align="center">
         <Text>
           👋 My name is Glenn, I'm a fullstack JavaScript developer at a tech
-          startup and teacher at a web development bootcamp in Melbourne,
+          startup and teacher of web development at a bootcamp in Melbourne,
           Australia. <br />
-          If you have any questions please feel free to reach out via this{" "}
+          If you have any questions please feel free to reach out {" "}
           <em style={{ textDecoration: "underline" }}>
-            <a href="mailto: hello@enance.io">email.</a>
+            <a href="/contact">here.</a>
           </em>
         </Text>
         <Avatar
           m={4}
           name="Glenn Tippett"
           size="xl"
+          border="1px solid #D53F8C"
           src="https://avatars.githubusercontent.com/u/48549970?v=4"
         />
       </Flex>

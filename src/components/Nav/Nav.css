@@ -7,13 +7,20 @@
 
 .nav-link:hover,
 .selected {
-  background: #E2E8F0;
+  background: #e2e8f0;
 }
 
 .feedback {
-  background: #C05621;
+  background: #c05621;
   color: white;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  max-width: fit-content;
+}
+
+.feedback > svg {
+  margin-left: 4px;
 }
 
 .feedback:hover {

@@ -22,7 +22,7 @@ export const BlogCard = ({ title, avatar, abstract, id }) => {
         p={6}
         overflow={"hidden"}
         style={{ transition: "transform 0.2s" }}
-        _hover={{ transform: "scale(1.02)", cursor: "pointer" }}
+        _hover={{ cursor: "pointer", border: "1px solid black" }}
       >
         <Stack direction="row" align="center">
           <Avatar size="lg" mr={2} src={avatar} />
