@@ -20,7 +20,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  Icon
+  Icon,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { FcHome } from "react-icons/fc";
@@ -28,9 +28,14 @@ import { NavLink, Link } from "react-router-dom";
 import { LoginButton, LogoutButton } from "../../services/Authentication";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Nav.css";
-const Links = ["About", "Challenges", "Blog", "Contact"];
+const Links = ["About", "Challenges", "Blog", "Portfolio Ideas", "Contact"];
 
 const NavigationLinks = ({ children }) => {
+  /* If the link contains a space (eg "Portfolio Ideas")
+    then addDashToRoute replaces the spaces with dashes to create: portfolio-ideas
+  */
+  const addDashToRoute = (route) => route.replace(/\s+/g, "-").toLowerCase();
+
   return (
     <NavLink
       px={2}
@@ -38,7 +43,9 @@ const NavigationLinks = ({ children }) => {
       rounded={"md"}
       activeClassName="selected"
       className="nav-link"
-      to={`/${children}`}
+      to={`/${
+        children.indexOf(" ") >= 0 ? addDashToRoute(children) : children
+      }`}
     >
       {children}
     </NavLink>
@@ -114,12 +121,7 @@ export default function Simple() {
               <HStack justify="space-between">
                 <Link to="/">
                   {" "}
-                  <Icon
-                    as={FcHome}
-                    w={6}
-                    h={6}
-                    ml={2}
-                  />
+                  <Icon as={FcHome} w={6} h={6} ml={2} />
                 </Link>
                 <Button colorScheme={"red"} onClick={onClose} size="sm">
                   <CloseIcon />
