@@ -15,22 +15,25 @@ import {
   IoCodeSlashSharp,
   IoSearchSharp,
 } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
-const Feature = ({ text, icon, iconBg }) => {
+const Feature = ({ text, icon, iconBg, link }) => {
   return (
-    <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
-        {icon}
-      </Flex>
-      <Text fontWeight={600}>{text}</Text>
-    </Stack>
+    <Link to={link}>
+      <Stack direction={"row"} align={"center"}>
+        <Flex
+          w={8}
+          h={8}
+          align={"center"}
+          justify={"center"}
+          rounded={"full"}
+          bg={iconBg}
+        >
+          {icon}
+        </Flex>
+        <Text fontWeight={600}>{text}</Text>
+      </Stack>
+    </Link>
   );
 };
 
@@ -70,6 +73,7 @@ export function FeatureOne() {
               }
               iconBg={useColorModeValue("yellow.100", "yellow.900")}
               text={"Upskilling"}
+              link="#"
             />
             <Feature
               icon={
@@ -77,6 +81,7 @@ export function FeatureOne() {
               }
               iconBg={useColorModeValue("green.100", "green.900")}
               text={"Portfolio Ideas"}
+              link="portfolio-ideas"
             />
             <Feature
               icon={
@@ -84,6 +89,7 @@ export function FeatureOne() {
               }
               iconBg={useColorModeValue("purple.100", "purple.900")}
               text={"Job Analysis"}
+              link="#"
             />
           </Stack>
         </Stack>

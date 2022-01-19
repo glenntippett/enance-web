@@ -21,6 +21,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   Icon,
+  Badge,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { FcHome } from "react-icons/fc";
@@ -48,6 +49,11 @@ const NavigationLinks = ({ children }) => {
       }`}
     >
       {children}
+      {children === "Portfolio Ideas" && (
+        <Badge ml="1" colorScheme="green">
+          New
+        </Badge>
+      )}
     </NavLink>
   );
 };
