@@ -13,6 +13,7 @@ import { notFound } from "./pages/404";
 import CodingChallengeDataService from "./services/codingChallenges";
 import BlogDataService from "./services/blogs";
 import { Contact } from "./pages/Contact";
+import { PortfolioIdeas } from "./pages/PortfolioIdeas";
 
 export const App = () => {
   const [challenges, setChallenges] = useState([]);
@@ -62,6 +63,7 @@ export const App = () => {
           </Route>
           <Route path="/blog/:id" exact component={Post} />
           <Route path="/profile" exact component={Profile} />
+          <Route path="/portfolio-ideas" exact component={PortfolioIdeas} />
           <Route path="/contact" exact component={Contact} />
           <Route path="*" component={notFound} />
         </Switch>

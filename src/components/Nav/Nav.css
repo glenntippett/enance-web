@@ -3,6 +3,7 @@
   transition: 0.2s;
   border-radius: 4px;
   text-decoration: none;
+  min-width: fit-content; /* Stop "Portfolio Ideas" link squashing onto 2 lines */
   max-width: fit-content; /* Stops active/hover state bg colour covering full width on mobile */
 }
 

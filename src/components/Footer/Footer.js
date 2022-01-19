@@ -27,6 +27,9 @@ export function Footer() {
             <Link to="/blog">Blog</Link>
           </Stack>
           <Stack align={"flex-start"}>
+            <Link to="/portfolio-ideas">Portfolio Ideas</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
             <Link to="/contact">Contact</Link>
           </Stack>
         </SimpleGrid>
