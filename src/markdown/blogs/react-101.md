@@ -70,46 +70,12 @@ Let's start by learning what a component is, to do this we'll first fill `App.js
 
 Between the `<divs>` let's insert some markup for a basic nav: 
 
-    // src/App.js
-    
-    <nav class="nav">
-	  <ul class="nav-list-container">
-	    <li class="nav-item"><a  href="#">Home</a></li>
-        <li class="nav-item"><a  href="#">About</a></li>
-        <li class="nav-item"><a  href="#">Contact</a></li>
-      </ul>
-    </nav>
+![JS code.](/images/nav-comp-1.png "This is a sample image.")
 
 Inside `index.css` let's add some styling: 
 
-    /* src/index.css */
-    
-    .nav {
-      display:  flex;
-      align-items:  center;
-      padding:  16px;
-      box-shadow:  0  5px  15px  rgba(0,  0,  0,  0.1);
-    }
-	    
-	.nav-list-container {
-	  display:  flex;
-	  align-items:  center;
-	  list-style-type:  none;
-	  margin:  0;
-	}
-	
-	.nav-item {
-	  margin-left:  16px;
-	}
-	
-	.nav-item  a {
-	  text-decoration:  none;
-	  color:  inherit;
-	}
-	
-	.nav-item  a:hover {
-	  text-decoration:  underline;
-	}
+![CSS code.](/images/nav-css-1.png "This is a sample image.")
+
 
 Great, we have a nav! Let's turn it into a component.  
 A component is basically taking a piece of code and putting it into it's own file so we can import it and use it as needed. 
@@ -129,21 +95,7 @@ The syntax looks exactly like a normal ES6 function, though we return the code w
 
 Create a function called `Nav` and in the return statement, add the nav code we put into `App.js` (You can remove the nav code from `App.js`. 
 
-	// src/components/Nav/Nav.js
-	
-	const Nav = () => {
-	  return (
-	    <nav class="nav">
-	      <ul class="nav-list-container">
-	        <li class="nav-item"><a  href="#">Home</a></li>
-            <li class="nav-item"><a  href="#">About</a></li>
-            <li class="nav-item"><a  href="#">Contact</a></li>
-          </ul>
-        </nav>
-	  );
-	};
-	
-	export  default  Nav; 
+![JS code.](/images/nav-comp-2.png "This is a sample image.")
 
 ### Move the Nav styles to the component directory
 `touch src/components/Nav/NavStyle.css`
@@ -176,16 +128,7 @@ Our Nav is back!
 
 Your `App.js` file should now look like this: 
 
-	import Nav from  './components/Nav/Nav';
-	  function  App() {
-	    return (
-		  <div  className="App">
-		    <Nav  />
-	      </div>
-		);
-	}
-	
-	export  default  App;
+![HTML code.](/images/app-js-final.png "This is a sample image.")
 
 ## Next Steps
 So this was a beginner guide on how to create a component in React.  
