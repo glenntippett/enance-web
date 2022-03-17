@@ -7,7 +7,7 @@ The component aspect of React is one of the reasons it is popular, though it has
 To get started I recommend the "Thinking in React" article on the 
 [React Docs](https://reactjs.org/docs/thinking-in-react.html).  
 
-## A basic Compinent
+## A basic Component
 Let's  learn how to implement a basic React Component.    
 
 ### Assumptions
